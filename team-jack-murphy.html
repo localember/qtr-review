@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack Murphy | QTR Family Wealth</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Jack Murphy is a Private Wealth Associate Strategist at QTR Family Wealth, where he supports the team in delivering tailored financial solutions to high-net-worth clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Prestige v2 — Lighter, Blue-Forward */
+    --p-white: #FFFFFF;
+    --p-snow: #F8F9FB;
+    --p-ice: #F0F2F6;
+    --p-cloud: #E2E6ED;
+    --p-silver: #94A3B8;
+    --p-ash: #6B7A8D;
+    --p-steel: #475569;
+    --p-charcoal: #2D3748;
+    --p-ink: #1A202C;
+
+    /* Brand Blues */
+    --p-blue: #1B3A5C;
+    --p-blue-deep: #0F2744;
+    --p-blue-rich: #234B73;
+    --p-blue-light: #3B6998;
+    --p-blue-pale: #E8EEF5;
+    --p-blue-muted: rgba(27, 58, 92, 0.06);
+
+    /* Gold Accents */
+    --p-gold: #C9A84C;
+    --p-gold-light: #E2CC7E;
+    /* AA-safe gold for SMALL text on white/snow cards. Same hue (44.2deg) and
+       saturation (53.6%) as --p-gold, lightness stepped down only.
+       #C9A84C measured 2.29:1 on white at 11-13px — a fail. This is 4.91:1. */
+    --p-gold-ink: #866E29;
+    --p-gold-muted: rgba(201, 168, 76, 0.12);
+
+    /* Typography */
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+
+    /* Spacing */
+    --section-padding: clamp(80px, 10vw, 140px);
+    --container-width: 1200px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--p-steel);
+    background: var(--p-white);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(27, 58, 92, 0.06);
+    transition: all 0.4s ease;
+  }
+
+  .header-inner {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    height: 40px;
+  }
+
+  .brand-mark img {
+    height: 100%;
+    width: auto;
+    display: block;
+    /* Invert white-on-transparent PNG to navy for use on white header.
+       Filter chain: invert (white→black) then sepia+saturate+hue-rotate
+       to land on the brand navy. Replace with native navy SVG when QTR
+       provides the colored vector. */
+    filter: brightness(0) saturate(100%) invert(18%) sepia(48%) saturate(1180%) hue-rotate(186deg) brightness(95%) contrast(95%);
+  }
+
+  .nav {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .nav a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--p-charcoal);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+  }
+
+  .nav a:hover { color: var(--p-gold); }
+
+  .nav-cta {
+    border: 1px solid var(--p-blue);
+    padding: 10px 24px;
+    color: var(--p-blue) !important;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--p-blue);
+    color: white !important;
+  }
+
+  /* ===== HERO — Integrated: photo banner with overlapping text card ===== */
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 0;
+    background: var(--p-white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Photo banner — full bleed, sized to show team faces clearly */
+  .hero-banner {
+    position: relative;
+    width: 100%;
+    height: clamp(440px, 48vw, 620px);
+    overflow: hidden;
+    background: var(--p-blue-deep);
+  }
+
+  .hero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+  }
+
+  /* Subtle dim on the photo so the card has some contrast against busy parts */
+  .hero-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(15, 39, 68, 0.10) 0%,
+      rgba(15, 39, 68, 0.0) 30%,
+      rgba(15, 39, 68, 0.0) 70%,
+      rgba(15, 39, 68, 0.18) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Hero shell wraps banner + card — card flows naturally below banner with negative margin to overlap */
+  .hero-shell {
+    position: relative;
+    background: var(--p-white);
+  }
+
+  /* Text card — pulled up over the photo with negative margin */
+  .hero-card {
+    position: relative;
+    width: min(92%, 760px);
+    margin: -120px auto 0;
+    background: var(--p-white);
+    padding: 56px 64px 48px;
+    text-align: center;
+    z-index: 4;
+    box-shadow: 0 24px 60px -20px rgba(15, 39, 68, 0.18);
+  }
+
+  /* Gold hairline mark at top of card — single deliberate accent */
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 2px;
+    background: var(--p-gold);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    color: var(--p-ash);
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--p-cloud);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5.2vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--p-blue);
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--p-gold);
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--p-steel);
+    max-width: 560px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* Stats sit below the card in natural flow */
+  .hero-secondary {
+    padding: 80px 40px 100px;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .btn-primary {
+    background: var(--p-blue);
+    color: white;
+    padding: 17px 38px;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid var(--p-blue);
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--p-blue-deep);
+    border-color: var(--p-blue-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(27, 58, 92, 0.18);
+  }
+
+  .btn-line {
+    color: var(--p-charcoal);
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px 0;
+    transition: color 0.3s ease;
+  }
+
+  .btn-line:hover { color: var(--p-blue); }
+
+  .btn-line-arrow {
+    width: 28px;
+    height: 1px;
+    background: currentColor;
+    position: relative;
+    transition: width 0.4s ease;
+  }
+
+  .btn-line-arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  .btn-line:hover .btn-line-arrow { width: 44px; }
+
+  /* Stats — vertical hairline separators */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .hero-stat {
+    padding: 0 24px;
+    position: relative;
+  }
+
+  .hero-stat + .hero-stat::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--p-cloud);
+  }
+
+  .hero-stat-value {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--p-blue);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-stat-value span {
+    color: var(--p-blue);
+    font-size: 22px;
+    vertical-align: super;
+    line-height: 1;
+    margin-left: 1px;
+    font-weight: 400;
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--p-ash);
+    font-weight: 500;
+  }
+
+  /* Mobile: stack instead of overlap */
+  @media (max-width: 768px) {
+    .hero-banner { height: clamp(320px, 60vw, 420px); }
+    .hero-card {
+      width: calc(100% - 32px);
+      margin: -60px auto 0;
+      padding: 36px 28px 28px;
+    }
+    .hero-secondary { padding: 48px 24px 64px; }
+    .hero-actions { flex-direction: column; gap: 20px; margin-top: 28px; }
+  }
+
+  /* The three hero stats are repeat(3, 1fr) with 24px of padding a side. A 1fr track
+     cannot shrink below its own min-content, so on a phone the three tracks measured
+     415.6px inside a 342px box and the third cell ("Forbes / Best-In-State") ran 50px
+     past the viewport and was CLIPPED — not scrollable, just gone. Measured at 390px
+     2026-09-09. Content alone is 272px; trimming the padding is enough to seat all
+     three, and keeps the row reading as one strip rather than a stack. */
+  @media (max-width: 600px) {
+    .hero-stat { padding: 0 8px; }
+    .hero-stat-value { font-size: 30px; }
+    .hero-stat-value span { font-size: 18px; }
+    .hero-stat-label { font-size: 9px; letter-spacing: 1px; }
+  }
+
+  /* ===== SECTION EYEBROW ===== */
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--p-gold);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .section-eyebrow-center {
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--p-blue);
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--p-gold);
+  }
+
+  /* ===== PHILOSOPHY ===== */
+  .philosophy {
+    padding: var(--section-padding) 0;
+    background: var(--p-snow);
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .philosophy-image-wrap {
+    position: relative;
+  }
+
+  .philosophy-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .philosophy-image-accent {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--p-gold);
+    border-radius: 2px;
+    z-index: -1;
+  }
+
+  .philosophy-body {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--p-steel);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .philosophy-quote {
+    margin-top: 40px;
+    padding-left: 32px;
+    border-left: 2px solid var(--p-gold);
+  }
+
+  .philosophy-quote blockquote {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-style: italic;
+    color: var(--p-blue);
+    line-height: 1.4;
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+
+  .philosophy-quote cite {
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--p-ash);
+    font-weight: 500;
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    padding: var(--section-padding) 0;
+    background: var(--p-white);
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .service-card {
+    background: var(--p-snow);
+    text-decoration: none;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(27, 58, 92, 0.12);
+  }
+
+  .service-card-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .service-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .service-card:hover .service-card-image img {
+    transform: scale(1.05);
+  }
+
+  .service-card-body {
+    padding: 36px 32px;
+  }
+
+  .service-number {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--p-gold-ink);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--p-blue);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .service-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--p-steel);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .service-link {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--p-blue);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: gap 0.3s ease;
+  }
+
+  .service-card:hover .service-link {
+    gap: 16px;
+    color: var(--p-gold);
+  }
+
+  /* ===== TEAM ===== */
+  .team {
+    padding: var(--section-padding) 0;
+    background: var(--p-blue-deep);
+    color: white;
+  }
+
+  .team-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 72px;
+  }
+
+  .team .section-title { color: white; }
+  .team .section-title em { color: var(--p-gold-light); }
+
+  .team-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .team-card {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.4s ease;
+  }
+
+  .team-card:hover { transform: translateY(-6px); }
+
+  .team-card-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-bottom: 28px;
+    position: relative;
+    background: var(--p-blue-rich);
+  }
+
+  .team-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%);
+    transition: filter 0.5s ease, transform 0.6s ease;
+  }
+
+  .team-card:hover .team-card-image img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+  }
+
+  .team-card-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(15, 39, 68, 0.4));
+    pointer-events: none;
+  }
+
+  .team-card-name {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .team-card-role {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--p-gold-light);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .team-card-certs {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== TRUST STRIP ===== */
+  .trust {
+    padding: 80px 0;
+    background: var(--p-snow);
+    border-top: 1px solid var(--p-cloud);
+    border-bottom: 1px solid var(--p-cloud);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+
+  .trust-item:not(:last-child) {
+    border-right: 1px solid var(--p-cloud);
+  }
+
+  .trust-value {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 500;
+    color: var(--p-blue);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .trust-value span {
+    color: var(--p-gold);
+    font-size: 32px;
+  }
+
+  .trust-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--p-ash);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ===== INSIGHTS ===== */
+  .insights {
+    padding: var(--section-padding) 0;
+    background: var(--p-white);
+  }
+
+  .insights-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+    gap: 40px;
+  }
+
+  .insights-header-left { max-width: 600px; }
+  .insights-header .section-title { margin-bottom: 0; }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+  }
+
+  .insight-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    background: var(--p-snow);
+    transition: transform 0.4s ease;
+  }
+
+  .insight-card:hover { transform: translateY(-4px); }
+
+  .insight-featured .insight-image {
+    height: 320px;
+    overflow: hidden;
+  }
+
+  .insight-featured .insight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .insight-body { padding: 32px 36px; }
+
+  .insight-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--p-gold-ink);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .insight-card h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--p-blue);
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .insight-featured h3 { font-size: 30px; }
+
+  .insight-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--p-steel);
+    font-weight: 300;
+  }
+
+  .insight-stack {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .insight-small .insight-body {
+    padding: 28px 32px;
+  }
+
+  /* ===== CTA ===== */
+  .cta {
+    padding: var(--section-padding) 0;
+    background: var(--p-blue);
+    color: white;
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .cta .section-eyebrow {
+    color: var(--p-gold-light);
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 28px;
+  }
+
+  .cta-title em {
+    font-style: italic;
+    color: var(--p-gold-light);
+  }
+
+  .cta-body {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    background: var(--p-gold);
+    color: var(--p-blue-deep);
+    padding: 20px 48px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    background: var(--p-gold-light);
+    transform: translateY(-2px);
+  }
+
+  .cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-left: 32px;
+  }
+
+  .cta-phone:hover { color: white; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--p-blue-deep);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 80px 0 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: white;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .footer-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .footer-address {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer-heading {
+    font-family: var(--font-display);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li { margin-bottom: 12px; }
+
+  .footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover { color: var(--p-gold-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 32px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 32px;
+  }
+
+  .footer-legal a {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-legal a:hover { color: var(--p-gold-light); }
+
+  /* ===== REVEAL ANIMATION ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== LOAD ANIMATION (approved-build pass, 2026-09-05; re-landed onto navy-grey
+     2026-09-09 after John confirmed index-navy-grey.html is the option B the client
+     picked — the 09-05 build had it on index-all-navy.html, the wrong base).
+     Client asked for "some animation"; direction locked in HANDOFF.md:
+     subtle and architectural, no bouncing, no springs, no parallax. */
+
+  /* Hero card: fade-in + slide-up on initial load, after the banner settles */
+  @keyframes hero-card-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-card {
+    animation: hero-card-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+  }
+
+  /* Gold hairline mark: draws in horizontally from center, after the card lands */
+  @keyframes hairline-draw {
+    from { transform: translateX(-50%) scaleX(0); }
+    to   { transform: translateX(-50%) scaleX(1); }
+  }
+  .hero-card::before {
+    animation: hairline-draw 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both;
+  }
+
+  /* Reduced motion: everything lands in place, nothing moves, stats render final values (JS checks too) */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-card, .hero-card::before { animation: none; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 991px) {
+    .nav { display: none; }
+    .philosophy-grid,
+    .services-grid,
+    .team-grid,
+    .insights-grid,
+    .footer-grid,
+    .trust-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .trust-item:not(:last-child) {
+      border-right: none;
+      border-bottom: 1px solid var(--p-cloud);
+      padding-bottom: 32px;
+    }
+    .insights-header { flex-direction: column; align-items: flex-start; }
+    .hero-actions { flex-direction: column; }
+    .cta-phone { margin-left: 0; margin-top: 20px; display: block; }
+  }
+</style>
+
+<!-- ============================================================
+     DARK THEME OVERRIDE — NAVY + GREY
+
+     Two grounds, each with a JOB, rather than two grounds taking
+     turns. Alternating them section by section would read as
+     indecision and would let neither colour mean anything.
+
+       NAVY  frames and punctuates — the arrival (hero), the proof
+             band (trust), and the close (CTA + footer). It is the
+             firm's colour, so it carries the moments that are about
+             the firm rather than about the reading.
+       GREY  holds the reading — philosophy, services, team,
+             insights. Lighter, so long copy sits easier on it, and
+             the navy suits in the team headshots separate from it
+             instead of sinking in.
+
+     The hero card is Nikki's approved grey ON navy, which is what
+     the client asked for in the first place: mostly navy, with that
+     grey box. A soft tonal step rather than the hard white-on-navy
+     the earlier dark theme used.
+
+     One text set serves both grounds (it is sized for the LIGHTER
+     one, so it only gains contrast on navy), and small-text gold is
+     --p-gold-light throughout for the same reason.
+
+     Scoped under body.theme-dark; the light styles above are
+     untouched, so this stays a true variant of the approved design.
+     Translates to a Breakdance Global Color swap + a handful of
+     section background overrides.
+     ============================================================ -->
+<style id="dark-theme">
+  body.theme-dark {
+    /* NAVY — frames and punctuates */
+    --n-base:   #0E2742;  /* hero, trust */
+    --n-cta:    #1B3A5C;  /* CTA band, top */
+    --n-cta-2:  #16314E;  /* CTA band, foot */
+    --n-floor:  #081726;  /* footer, deepest */
+
+    /* GREY — holds the reading. Nikki's approved #4C545E, plus one
+       step down so the three grey sections separate from each other. */
+    --g-base:   #4C545E;  /* philosophy, team — the approved grey */
+    --g-deep:   #3E444C;  /* services, insights */
+    --g-card:   #4C545E;  /* the hero card, sitting on navy */
+
+    /* One text set, sized for the LIGHTER (grey) ground so it only
+       gains contrast on navy. Ratios quoted against --g-base. */
+    --d-line:   rgba(255,255,255,0.12);
+    --d-text:   #D6DBE1;  /* body text   — 5.5:1 */
+    --d-head:   #F4F6F8;  /* headings    — 7.1:1 */
+    --d-muted:  #C6CCD3;  /* labels/cite — 4.7:1 */
+    background: var(--n-base);
+    color: var(--d-text);
+  }
+
+  /* HEADER */
+  .theme-dark .header { background: rgba(8,22,38,0.84); border-bottom: 1px solid var(--d-line); }
+  .theme-dark .brand-mark img { filter: none; }            /* white logo native on dark — no recolor needed */
+  .theme-dark .nav a { color: #D4DEEA; }
+  .theme-dark .nav a:hover { color: var(--p-gold-light); }
+  .theme-dark .nav-cta { border-color: rgba(201,168,76,0.55); color: var(--p-gold-light) !important; }
+  .theme-dark .nav-cta:hover { background: var(--p-gold); border-color: var(--p-gold); color: var(--p-blue-deep) !important; }
+
+  /* HERO */
+  .theme-dark .hero,
+  .theme-dark .hero-shell { background: var(--n-base); }
+  /* THE CARD IS THE GREY, ON NAVY — the client's actual ask. A dark card on a
+     dark ground needs the shadow to do real work plus a light top edge, or the
+     two tones blur into each other at the join. */
+  .theme-dark .hero-card {
+    background: var(--g-card);
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 34px 80px -24px rgba(0,0,0,0.55);
+  }
+  .theme-dark .hero-eyebrow { color: rgba(255,255,255,0.70); }
+  .theme-dark .hero-eyebrow::before,
+  .theme-dark .hero-eyebrow::after { background: rgba(255,255,255,0.32); }
+  .theme-dark .hero-title { color: var(--p-white); }
+  .theme-dark .hero-title em { color: var(--p-gold-light); }
+  .theme-dark .hero-sub { color: rgba(255,255,255,0.82); }
+  .theme-dark .hero-stat-value { color: var(--d-head); }
+  .theme-dark .hero-stat-value span { color: var(--p-gold-light); }
+  .theme-dark .hero-stat-label { color: var(--d-muted); }
+  .theme-dark .hero-stat + .hero-stat::before { background: var(--d-line); }
+
+  /* BUTTONS */
+  /* Hero primary button sits on the GREY card — white fill, card-coloured label */
+  .theme-dark .btn-primary { background: var(--p-white); border-color: var(--p-white); color: var(--g-card); }
+  .theme-dark .btn-primary:hover { background: transparent; color: var(--p-white); border-color: var(--p-white); box-shadow: 0 12px 28px rgba(0,0,0,0.35); }
+  .theme-dark .btn-line { color: #D4DEEA; }
+  .theme-dark .btn-line:hover { color: var(--p-gold-light); }
+  .theme-dark .hero-card .btn-line { color: rgba(255,255,255,0.85); }
+  .theme-dark .hero-card .btn-line:hover { color: var(--p-gold-light); }
+
+  /* SECTION TITLES. The eyebrows are 12px uppercase, so they need small-text
+     contrast: --p-gold is only 3.4:1 on this grey, --p-gold-light is 4.8:1. */
+  .theme-dark .section-eyebrow { color: var(--p-gold-light); }
+  .theme-dark .section-title { color: var(--d-head); }
+  .theme-dark .section-title em { color: var(--p-gold-light); }
+
+  /* PHILOSOPHY */
+  .theme-dark .philosophy { background: var(--g-base); }
+  .theme-dark .philosophy-body { color: var(--d-text); }
+  .theme-dark .philosophy-quote blockquote { color: var(--d-head); }
+  .theme-dark .philosophy-quote cite { color: var(--d-muted); }
+
+  /* SERVICES */
+  .theme-dark .services { background: var(--g-deep); }
+  /* Service cards kept WHITE */
+  .theme-dark .service-card { background: var(--p-white); border: none; }
+  .theme-dark .service-card:hover { background: var(--p-white); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+  .theme-dark .service-card h3 { color: var(--p-blue); }
+  .theme-dark .service-card p { color: var(--p-steel); }
+  .theme-dark .service-link { color: var(--p-blue); }
+  .theme-dark .service-card:hover .service-link { color: var(--p-gold); }
+
+  /* TEAM — grey, deliberately: the headshots are navy suits and they sink into a
+     navy ground. This was measured on the all-navy build, not assumed. */
+  .theme-dark .team { background: var(--g-base); }
+
+  /* TRUST */
+  .theme-dark .trust { background: var(--n-base); border-top: 1px solid var(--d-line); border-bottom: 1px solid var(--d-line); }
+  .theme-dark .trust-item:not(:last-child) { border-right: 1px solid var(--d-line); }
+  .theme-dark .trust-value { color: var(--d-head); }
+  .theme-dark .trust-value span { color: var(--p-gold-light); }
+  .theme-dark .trust-label { color: var(--d-muted); }
+
+  /* INSIGHTS */
+  .theme-dark .insights { background: var(--g-deep); }
+  /* Insight cards kept WHITE */
+  .theme-dark .insight-card { background: var(--p-white); border: none; }
+  .theme-dark .insight-card h3 { color: var(--p-blue); }
+  .theme-dark .insight-card p { color: var(--p-steel); }
+
+  /* CTA — navy again, and it can go back to being the BRIGHTER beat before the
+     deep footer, which only worked because the band is navy rather than grey. */
+  .theme-dark .cta { background: linear-gradient(180deg, var(--n-cta) 0%, var(--n-cta-2) 100%); }
+  .theme-dark .btn-gold { color: var(--p-blue-deep); }
+
+  /* FOOTER (deepest) */
+  .theme-dark .footer { background: var(--n-floor); border-top: 1px solid var(--d-line); }
+
+  /* Stacked-mobile dividers must use dark lines, not the light --p-cloud */
+  @media (max-width: 991px) {
+    .theme-dark .trust-item:not(:last-child) { border-right: none; border-bottom: 1px solid var(--d-line); }
+  }
+
+  /* ============================================================
+     INTERIOR PAGES — added 2026-09-09 for the page build.
+
+     Every value below is an EXISTING token. No new colour, no new
+     font, no new spacing scale: the homepage decided those and an
+     interior page that invents its own is a second design.
+
+     The one rule these pages add is a READING MEASURE. The homepage
+     is a sequence of short blocks; these carry 250-1300 words, and
+     unbounded line length is the difference between a brochure and
+     a document.
+     ============================================================ */
+
+  .page-hero {
+    background: var(--n-base);
+    padding: 168px 0 72px;          /* clears the fixed header */
+    border-bottom: 1px solid var(--d-line);
+  }
+  .page-hero .container { max-width: 1200px; }
+  .page-hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--p-gold-light);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--d-head);
+    margin: 0;
+    max-width: 20ch;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--p-gold-light); }
+  .page-hero-sub {
+    margin: 24px 0 0;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--d-text);
+    max-width: 62ch;
+  }
+
+  .page-body { background: var(--g-deep); padding: 84px 0 96px; }
+  .page-body.on-grey { background: var(--g-base); }
+
+  .prose { max-width: 74ch; }
+  .prose.center { margin: 0 auto; }
+  .prose > *:first-child { margin-top: 0; }
+  .prose h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.25;
+    font-weight: 400;
+    color: var(--d-head);
+    margin: 56px 0 20px;
+  }
+  .prose h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--d-head);
+    margin: 40px 0 14px;
+  }
+  .prose h4 {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--p-gold-light);
+    margin: 30px 0 8px;
+  }
+  .prose p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--d-text);
+    margin: 0 0 20px;
+  }
+  .prose ul { margin: 0 0 20px; padding-left: 20px; }
+  .prose li { font-size: 16px; line-height: 1.8; color: var(--d-text); margin-bottom: 8px; }
+  .prose blockquote {
+    margin: 40px 0;
+    padding: 4px 0 4px 28px;
+    border-left: 2px solid var(--p-gold);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--d-head);
+  }
+  .prose img { width: 100%; height: auto; display: block; margin: 36px 0; }
+  .prose a { color: var(--p-gold-light); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Two-column figure rows, used where the live page pairs an image with a block */
+  .prose-figure { margin: 40px 0; }
+  .prose-figure img { margin: 0; }
+  .prose-figure figcaption {
+    margin-top: 12px; font-size: 13px; color: var(--d-muted); line-height: 1.6;
+  }
+
+  /* ── card grids: team index, insights index ── */
+  .idx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  .idx-card {
+    background: var(--p-white);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .idx-card:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+  .idx-card-img { aspect-ratio: 4 / 5; overflow: hidden; background: var(--g-base); }
+  .idx-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .idx-card.wide .idx-card-img { aspect-ratio: 16 / 10; }
+  .idx-card-body { padding: 24px 26px 28px; }
+  .idx-card-tag {
+    display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--p-gold-ink); font-weight: 500; margin-bottom: 12px;
+  }
+  .idx-card h3 {
+    font-family: var(--font-display); font-size: 21px; font-weight: 400;
+    color: var(--p-blue); margin: 0 0 8px; line-height: 1.3;
+  }
+  .idx-card .role {
+    font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--p-gold-ink); font-weight: 500; margin: 0 0 12px; line-height: 1.6;
+  }
+  .idx-card p { font-size: 14px; line-height: 1.7; color: var(--p-steel); margin: 0; }
+
+  /* ── team member page ── */
+  .member-grid {
+    display: grid; grid-template-columns: 380px 1fr; gap: 56px; align-items: start;
+  }
+  .member-photo { width: 100%; height: auto; display: block; }
+  .member-role {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--p-gold-light); font-weight: 500; margin: 0 0 24px;
+  }
+
+  /* ── responsive video ── */
+  .video-embed {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 36px 0;
+    background: var(--n-floor);
+  }
+  .video-embed iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block;
+  }
+
+  /* ── contact / portal detail blocks ── */
+  .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+  .detail h4 {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--p-gold-light); font-weight: 500; margin: 0 0 12px;
+  }
+  .detail p, .detail a { font-size: 16px; line-height: 1.8; color: var(--d-text); margin: 0; }
+  .detail a { color: var(--d-text); text-decoration: none; }
+  .detail a:hover { color: var(--p-gold-light); }
+
+  /* ── an honest note where the live site has nothing to carry ── */
+  .stub-note {
+    border: 1px solid var(--d-line);
+    border-left: 3px solid var(--p-gold);
+    padding: 22px 26px;
+    margin: 32px 0 0;
+    max-width: 74ch;
+  }
+  .stub-note p { font-size: 15px; line-height: 1.75; color: var(--d-muted); margin: 0; }
+
+  /* ── footer compliance disclaimer (IFP, required — see the note in the footer markup) ── */
+  .footer-disclaimer {
+    border-top: 1px solid var(--d-line);
+    margin-top: 32px;
+    padding-top: 26px;
+  }
+  .footer-disclaimer p {
+    font-size: 11.5px;
+    line-height: 1.75;
+    color: var(--d-muted);
+    margin: 0 0 12px;
+    max-width: none;
+  }
+  .footer-disclaimer a { color: var(--d-muted); text-decoration: underline; text-underline-offset: 2px; }
+  .footer-disclaimer a:hover { color: var(--p-gold-light); }
+  .footer-disclaimer .refs { margin: 0; }
+
+  @media (max-width: 991px) {
+    .page-hero { padding: 130px 0 56px; }
+    .page-body { padding: 60px 0 72px; }
+    .member-grid { grid-template-columns: 1fr; gap: 32px; }
+    .member-photo { max-width: 340px; }
+  }
+
+
+  /* ============================================================
+     INTERIOR PAGES — added 2026-09-09 for the page build.
+
+     Every value below is an EXISTING token. No new colour, no new
+     font, no new spacing scale: the homepage decided those and an
+     interior page that invents its own is a second design.
+
+     The one rule these pages add is a READING MEASURE. The homepage
+     is a sequence of short blocks; these carry 250-1300 words, and
+     unbounded line length is the difference between a brochure and
+     a document.
+     ============================================================ */
+
+  .page-hero {
+    background: var(--n-base);
+    padding: 168px 0 72px;          /* clears the fixed header */
+    border-bottom: 1px solid var(--d-line);
+  }
+  .page-hero .container { max-width: 1200px; }
+  .page-hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--p-gold-light);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 5vw, 60px);
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--d-head);
+    margin: 0;
+    max-width: 20ch;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--p-gold-light); }
+  .page-hero-sub {
+    margin: 24px 0 0;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--d-text);
+    max-width: 62ch;
+  }
+
+  .page-body { background: var(--g-deep); padding: 84px 0 96px; }
+  .page-body.on-grey { background: var(--g-base); }
+
+  .prose { max-width: 74ch; }
+  .prose.center { margin: 0 auto; }
+  .prose > *:first-child { margin-top: 0; }
+  .prose h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.25;
+    font-weight: 400;
+    color: var(--d-head);
+    margin: 56px 0 20px;
+  }
+  .prose h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--d-head);
+    margin: 40px 0 14px;
+  }
+  .prose h4 {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--p-gold-light);
+    margin: 30px 0 8px;
+  }
+  .prose p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--d-text);
+    margin: 0 0 20px;
+  }
+  .prose ul { margin: 0 0 20px; padding-left: 20px; }
+  .prose li { font-size: 16px; line-height: 1.8; color: var(--d-text); margin-bottom: 8px; }
+  .prose blockquote {
+    margin: 40px 0;
+    padding: 4px 0 4px 28px;
+    border-left: 2px solid var(--p-gold);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--d-head);
+  }
+  .prose img { width: 100%; height: auto; display: block; margin: 36px 0; }
+  .prose a { color: var(--p-gold-light); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Two-column figure rows, used where the live page pairs an image with a block */
+  .prose-figure { margin: 40px 0; }
+  .prose-figure img { margin: 0; }
+  .prose-figure figcaption {
+    margin-top: 12px; font-size: 13px; color: var(--d-muted); line-height: 1.6;
+  }
+
+  /* ── card grids: team index, insights index ── */
+  .idx-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  .idx-card {
+    background: var(--p-white);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .idx-card:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+  .idx-card-img { aspect-ratio: 4 / 5; overflow: hidden; background: var(--g-base); }
+  .idx-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .idx-card.wide .idx-card-img { aspect-ratio: 16 / 10; }
+  .idx-card-body { padding: 24px 26px 28px; }
+  .idx-card-tag {
+    display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--p-gold-ink); font-weight: 500; margin-bottom: 12px;
+  }
+  .idx-card h3 {
+    font-family: var(--font-display); font-size: 21px; font-weight: 400;
+    color: var(--p-blue); margin: 0 0 8px; line-height: 1.3;
+  }
+  .idx-card .role {
+    font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--p-gold-ink); font-weight: 500; margin: 0 0 12px; line-height: 1.6;
+  }
+  .idx-card p { font-size: 14px; line-height: 1.7; color: var(--p-steel); margin: 0; }
+
+  /* ── team member page ── */
+  .member-grid {
+    display: grid; grid-template-columns: 380px 1fr; gap: 56px; align-items: start;
+  }
+  .member-photo { width: 100%; height: auto; display: block; }
+  .member-role {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--p-gold-light); font-weight: 500; margin: 0 0 24px;
+  }
+
+  /* ── responsive video ── */
+  .video-embed {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 36px 0;
+    background: var(--n-floor);
+  }
+  .video-embed iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block;
+  }
+
+  /* ── contact / portal detail blocks ── */
+  .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+  .detail h4 {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--p-gold-light); font-weight: 500; margin: 0 0 12px;
+  }
+  .detail p, .detail a { font-size: 16px; line-height: 1.8; color: var(--d-text); margin: 0; }
+  .detail a { color: var(--d-text); text-decoration: none; }
+  .detail a:hover { color: var(--p-gold-light); }
+
+  /* ── an honest note where the live site has nothing to carry ── */
+  .stub-note {
+    border: 1px solid var(--d-line);
+    border-left: 3px solid var(--p-gold);
+    padding: 22px 26px;
+    margin: 32px 0 0;
+    max-width: 74ch;
+  }
+  .stub-note p { font-size: 15px; line-height: 1.75; color: var(--d-muted); margin: 0; }
+
+  /* ── footer compliance disclaimer (IFP, required — see the note in the footer markup) ── */
+  .footer-disclaimer {
+    border-top: 1px solid var(--d-line);
+    margin-top: 32px;
+    padding-top: 26px;
+  }
+  .footer-disclaimer p {
+    font-size: 11.5px;
+    line-height: 1.75;
+    color: var(--d-muted);
+    margin: 0 0 12px;
+    max-width: none;
+  }
+  .footer-disclaimer a { color: var(--d-muted); text-decoration: underline; text-underline-offset: 2px; }
+  .footer-disclaimer a:hover { color: var(--p-gold-light); }
+  .footer-disclaimer .refs { margin: 0; }
+
+  @media (max-width: 991px) {
+    .page-hero { padding: 130px 0 56px; }
+    .page-body { padding: 60px 0 72px; }
+    .member-grid { grid-template-columns: 1fr; gap: 32px; }
+    .member-photo { max-width: 340px; }
+  }
+
+  /* Award marks + the rating disclosure each one legally travels with */
+  .award-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+  .award img { width: auto; max-width: 200px; height: auto; display: block; margin: 0 0 18px; }
+  .award p { font-size: 12.5px; line-height: 1.7; color: var(--d-muted); margin: 0; }
+
+</style>
+</head>
+<body class="theme-dark">
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="brand-mark" aria-label="QTR Family Wealth">
+      <img src="assets/images/qtr-logo-white-transparent.png" alt="QTR Family Wealth">
+    </a>
+    <nav class="nav">
+      <a href="about.html">About</a>
+      <a href="advisory-services.html">Advisory</a>
+      <a href="team.html">Team</a>
+      <a href="insights.html">Insights</a>
+      <a href="client-portal.html">Client Portal</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="page-hero-eyebrow">The People</p>
+    <h1>Jack Murphy</h1>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="container">
+    <div class="member-grid reveal">
+      <div><img class="member-photo" src="assets/images/jack-murphy_headshot-sized.jpg" alt="Jack Murphy" width="1709" height="2371"></div>
+      <div class="prose">
+        <p class="member-role">Private Wealth Strategist Associate</p>
+      <h2>Jack Murphy</h2>
+      <p>Jack Murphy is a Private Wealth Associate Strategist at QTR Family Wealth, where he supports the team in delivering tailored financial solutions to high-net-worth clients.</p>
+      <p>Jack graduated magna cum laude from Florida State University with a Bachelor of Science in Finance. He was active in the FSU Investing Club and the Financial Management Association and earned a place on the President’s List. Jack’s leadership was recognized through his induction into the Garnett and Gold Key Club.</p>
+      <p>During his time at FSU, Jack developed a passion for golf while working at Seminole Legacy Golf Club. His interest in QTR Family Wealth was solidified during his internships with the firm, where he experienced firsthand the client-centered approach that sets QTR apart.</p>
+        <p style="margin-top:36px"><a href="team.html">&larr; All of the team</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">QTR</div>
+        <p class="footer-desc">Private wealth management for entrepreneurs, business owners, and multi-generational families. Independent. Fiduciary. Intentional.</p>
+        <p class="footer-address">
+          Primera Tower III<br>
+          605 Crescent Executive Ct #140<br>
+          Lake Mary, FL 32746
+        </p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Advisory</h4>
+        <ul class="footer-links">
+          <li><a href="personal-wealth.html">Personal Wealth</a></li>
+          <li><a href="business-services.html">Business Services</a></li>
+          <li><a href="advisory-services.html">Trust &amp; Estate</a></li>
+          <li><a href="advisory-services.html">Insurance</a></li>
+          <li><a href="advisory-services.html">Credit &amp; Lending</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Firm</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About QTR</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="insights.html">Insights</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="client-portal.html">Client Portal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Connect</h4>
+        <ul class="footer-links">
+          <li><a href="tel:4077450715">(407) 745-0715</a></li>
+          <li><a href="mailto:info@qtrfamily.com">info@qtrfamily.com</a></li>
+          <li><a href="https://www.linkedin.com/company/qtr-family-wealth" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@QTRFamilyOffice-hi5mw" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 QTR Family Wealth, LLC. All rights reserved.</p>
+      <!-- 🔴 COMPLIANCE TEXT — VERBATIM, NOT OURS TO EDIT. Same wording and the same seven
+           links we shipped to the live footer 2026-07-29 after the client's compliance
+           process required it. The paragraph that stood here previously was design-written
+           and made a conflicting claim about who securities are offered through. -->
+      <div class="footer-disclaimer">
+        <p>Securities offered through IFP Securities, LLC, dba Independent Financial Partners (IFP), member <a href="https://www.finra.org/" target="_blank" rel="noopener">FINRA</a> / <a href="https://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>. IFP and QTR Family Wealth are not affiliated. Registration does not imply that the Firm is recommended or approved by the United States government or any regulatory agency. Registration with the United States Securities and Exchange Commission or any state securities authority does not imply any level of skill or training. IFP may only transact business or render personalized investment advice in those states and international jurisdictions where it is registered, has notice filed, or is otherwise excluded or exempted from registration requirements. The purpose of this website is for information distribution only and should not be construed as an offer to buy or sell securities or to offer investment advice. Past results are no guarantee of future results and no representation is made that a client will or is likely to achieve results that are similar to those described. An investor should consider his or her investment objectives, risks, charges and expenses carefully before investing. Please refer to IFP Advisors LLC ADV Part 2 for additional information and risks.</p>
+        <p class="refs"><a href="https://ifpartners.app.box.com/file/763705826059?s=rgebtsjdjzgx7ohmyurpqjlk97in5dwj" target="_blank" rel="noopener">Reg BI Disclosure Supplement</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/763697625423?s=tczh800qb1dhqvgace4pw69no4flsihm" target="_blank" rel="noopener">Form CRS</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/s/az9o40b53ci98707zd6au5q1hm71138k" target="_blank" rel="noopener">Investor Pricing</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/583658703941?s=qo2vwe5f5ek6bmu5xmtx1a5q96g9cf3q" target="_blank" rel="noopener">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/1094761215062?s=1shcydfmp5nfomimof1jjbih6p0qvkfk" target="_blank" rel="noopener">Business Continuity Plan</a></p>
+      </div>
+      <!-- 🔴 COMPLIANCE TEXT — VERBATIM, NOT OURS TO EDIT. Same wording and the same seven
+           links we shipped to the live footer 2026-07-29 after the client's compliance
+           process required it. The paragraph that stood here previously was design-written
+           and made a conflicting claim about who securities are offered through. -->
+      <div class="footer-disclaimer">
+        <p>Securities offered through IFP Securities, LLC, dba Independent Financial Partners (IFP), member <a href="https://www.finra.org/" target="_blank" rel="noopener">FINRA</a> / <a href="https://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>. IFP and QTR Family Wealth are not affiliated. Registration does not imply that the Firm is recommended or approved by the United States government or any regulatory agency. Registration with the United States Securities and Exchange Commission or any state securities authority does not imply any level of skill or training. IFP may only transact business or render personalized investment advice in those states and international jurisdictions where it is registered, has notice filed, or is otherwise excluded or exempted from registration requirements. The purpose of this website is for information distribution only and should not be construed as an offer to buy or sell securities or to offer investment advice. Past results are no guarantee of future results and no representation is made that a client will or is likely to achieve results that are similar to those described. An investor should consider his or her investment objectives, risks, charges and expenses carefully before investing. Please refer to IFP Advisors LLC ADV Part 2 for additional information and risks.</p>
+        <p class="refs"><a href="https://ifpartners.app.box.com/file/763705826059?s=rgebtsjdjzgx7ohmyurpqjlk97in5dwj" target="_blank" rel="noopener">Reg BI Disclosure Supplement</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/763697625423?s=tczh800qb1dhqvgace4pw69no4flsihm" target="_blank" rel="noopener">Form CRS</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/s/az9o40b53ci98707zd6au5q1hm71138k" target="_blank" rel="noopener">Investor Pricing</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/583658703941?s=qo2vwe5f5ek6bmu5xmtx1a5q96g9cf3q" target="_blank" rel="noopener">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/1094761215062?s=1shcydfmp5nfomimof1jjbih6p0qvkfk" target="_blank" rel="noopener">Business Continuity Plan</a></p>
+      </div>
+      <!-- 🔴 COMPLIANCE TEXT — VERBATIM, NOT OURS TO EDIT. Same wording and the same seven
+           links we shipped to the live footer 2026-07-29 after the client's compliance
+           process required it. The paragraph that stood here previously was design-written
+           and made a conflicting claim about who securities are offered through. -->
+      <div class="footer-disclaimer">
+        <p>Securities offered through IFP Securities, LLC, dba Independent Financial Partners (IFP), member <a href="https://www.finra.org/" target="_blank" rel="noopener">FINRA</a> / <a href="https://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>. IFP and QTR Family Wealth are not affiliated. Registration does not imply that the Firm is recommended or approved by the United States government or any regulatory agency. Registration with the United States Securities and Exchange Commission or any state securities authority does not imply any level of skill or training. IFP may only transact business or render personalized investment advice in those states and international jurisdictions where it is registered, has notice filed, or is otherwise excluded or exempted from registration requirements. The purpose of this website is for information distribution only and should not be construed as an offer to buy or sell securities or to offer investment advice. Past results are no guarantee of future results and no representation is made that a client will or is likely to achieve results that are similar to those described. An investor should consider his or her investment objectives, risks, charges and expenses carefully before investing. Please refer to IFP Advisors LLC ADV Part 2 for additional information and risks.</p>
+        <p class="refs"><a href="https://ifpartners.app.box.com/file/763705826059?s=rgebtsjdjzgx7ohmyurpqjlk97in5dwj" target="_blank" rel="noopener">Reg BI Disclosure Supplement</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/763697625423?s=tczh800qb1dhqvgace4pw69no4flsihm" target="_blank" rel="noopener">Form CRS</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/s/az9o40b53ci98707zd6au5q1hm71138k" target="_blank" rel="noopener">Investor Pricing</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/583658703941?s=qo2vwe5f5ek6bmu5xmtx1a5q96g9cf3q" target="_blank" rel="noopener">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/1094761215062?s=1shcydfmp5nfomimof1jjbih6p0qvkfk" target="_blank" rel="noopener">Business Continuity Plan</a></p>
+      </div>
+      <div class="footer-legal">
+        <a href="https://qtrfamily.com/wp-content/uploads/QTR_2aBrochure_2026.pdf" target="_blank" rel="noopener">Form ADV</a>
+        <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS</a>
+        <a href="disclosure-statement.html">Disclosures</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Stat count-up on scroll into view (approved-build pass, 2026-09-05).
+// Only stat values whose leading text is numeric animate; "Forbes" is left alone.
+// The final frame writes the ORIGINAL text back, so the rendered end state is
+// byte-identical to the approved design whatever the timer does.
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const values = document.querySelectorAll('.hero-stat-value');
+  const animate = node => {
+    const text = node.firstChild;
+    if (!text || text.nodeType !== 3) return;
+    const original = text.nodeValue;
+    const m = original.match(/^([^0-9]*)(\d+(?:\.\d+)?)$/);
+    if (!m) return;
+    const prefix = m[1], target = parseFloat(m[2]);
+    const decimals = (m[2].split('.')[1] || '').length;
+    const t0 = performance.now(), dur = 1200;
+    const step = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      text.nodeValue = p < 1
+        ? prefix + (target * ease(p)).toFixed(decimals)
+        : original;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const statObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        values.forEach(animate);
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  const strip = document.querySelector('.hero-stats');
+  if (strip) statObserver.observe(strip);
+})();
+</script>
+
+</body>
+</html>

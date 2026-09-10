@@ -1,0 +1,4 @@
+# Client review copy of a site that is not launched. It republishes qtrfamily.com's own
+# content, so indexing it would compete with the client's live site.
+User-agent: *
+Disallow: /
