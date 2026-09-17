@@ -126,6 +126,56 @@
 
   .nav a:hover { color: var(--p-gold); }
 
+  /* ===== NAV — matched to the live site's menu, 2026-09-17 =====
+     Ours was a flat six-item bar and theirs is a seven-item menu with two dropdowns and a
+     Disclosure Documents group that we did not carry at all. On an RIA's site that group is not
+     decoration: Form ADV and Form CRS are the documents a prospect is entitled to find, and the
+     live menu puts them one click from every page. */
+  .nav { display: flex; gap: 30px; align-items: center; }
+  .nav-item { position: relative; display: flex; align-items: center; }
+
+  .nav-item > a { display: inline-flex; align-items: center; gap: 6px; }
+  .nav-caret { width: 7px; height: 7px; border-right: 1.5px solid currentColor;
+               border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px);
+               opacity: .55; transition: opacity .25s ease; }
+  .nav-item:hover .nav-caret { opacity: 1; }
+
+  .nav-sub {
+    position: absolute; top: 100%; left: -18px; min-width: 268px;
+    background: var(--p-white);
+    border-top: 2px solid var(--p-gold);
+    box-shadow: 0 22px 54px rgba(13, 30, 50, 0.22);
+    padding: 10px 0;
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s;
+    z-index: 200;
+  }
+  /* A gap between the trigger and the panel breaks hover on the way down; this bridges it. */
+  .nav-item::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 18px; }
+  .nav-item:hover .nav-sub,
+  .nav-item:focus-within .nav-sub { opacity: 1; visibility: visible; transform: translateY(0); }
+
+  .nav-sub a {
+    display: block; padding: 11px 24px; font-size: 13.5px; letter-spacing: .3px;
+    color: var(--p-blue) !important; white-space: nowrap;
+  }
+  .nav-sub a:hover { background: var(--p-snow); color: var(--p-gold-ink) !important; }
+  .nav-sub .nav-sub-note {
+    display: block; padding: 4px 24px 10px; font-size: 10.5px; letter-spacing: 1.4px;
+    text-transform: uppercase; color: var(--p-steel);
+  }
+  .nav-login {
+    font-size: 13px; letter-spacing: .4px; color: var(--p-steel) !important;
+  }
+  .nav-login:hover { color: var(--p-gold-ink) !important; }
+  /* ⚠️ .nav-login sets its own colour, which OVERRODE the dark-theme .nav a rule and printed
+     #475569 on the rgba(8,22,38,.84) header — measured 2.4:1 on the rendered page. A nav link
+     styled quieter than its siblings is fine; one quieter than legibility is not. Restated for
+     the dark theme so the muting is relative to its neighbours, not absolute. */
+  .theme-dark .nav-login { color: var(--d-muted) !important; }
+  .theme-dark .nav-login:hover { color: var(--p-gold-light) !important; }
+
+
   .nav-cta {
     border: 1px solid var(--p-blue);
     padding: 10px 24px;
@@ -1024,9 +1074,77 @@
     .hero-card, .hero-card::before { animation: none; }
   }
 
+
+  /* ===== MOBILE MENU — added 2026-09-17 =====
+     `.nav { display:none }` below 991px was survivable when the homepage was the only page. With
+     27 pages it means a phone visitor cannot reach ANY of them, and the client will open this on
+     a phone. A disclosed-by-default panel, no framework: a checkbox drives it so it works with
+     JavaScript off and is keyboard reachable. */
+  .menu-toggle { display: none; }
+  .menu-btn { display: none; }
+
+  @media (max-width: 991px) {
+    .menu-btn {
+      display: flex; flex-direction: column; justify-content: center; gap: 5px;
+      width: 44px; height: 44px; cursor: pointer; margin-left: auto;
+      background: none; border: 0; padding: 10px;
+    }
+    .menu-btn span {
+      display: block; height: 2px; width: 100%; background: var(--p-charcoal);
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .theme-dark .menu-btn span { background: var(--d-head); }
+    .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(2) { opacity: 0; }
+    .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* 🔴 .header carries `backdrop-filter`, and backdrop-filter (like filter and transform) makes
+       an element a CONTAINING BLOCK for position:fixed descendants. So this panel's inset:0
+       resolved to the HEADER'S box — a 70px strip — not the viewport, and the menu rendered as a
+       single visible link over the hero. Dropping the blur at mobile widths is what actually fixes
+       it; a solid header background replaces what the blur was doing. Measured 2026-09-17. */
+    .header { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--n-floor); }
+    .theme-dark .header { background: var(--n-floor); }
+
+    .nav {
+      display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--n-floor); padding: 92px 28px 40px; overflow-y: auto;
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity .3s ease, transform .3s ease, visibility .3s;
+      z-index: 900;
+    }
+    /* ⚠️ `~ .nav` does NOT match: .nav is a CHILD of .header-inner, not a sibling of the
+       checkbox. The hamburger animated and the panel never opened, which looks like the
+       menu is broken rather than mis-selected. Descendant of the sibling is the right path. */
+    .menu-toggle:checked ~ .header-inner .nav { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-item { display: block; border-bottom: 1px solid var(--d-line); }
+    .nav-item > a {
+      display: block; padding: 17px 2px; font-size: 17px; color: var(--d-head) !important;
+      letter-spacing: .3px;
+    }
+    .nav-caret { display: none; }
+    /* Sub-items are always shown on mobile: a hover-only dropdown has no equivalent on touch,
+       and hiding Form ADV / Form CRS behind a gesture is the opposite of the point. */
+    .nav-sub {
+      position: static; opacity: 1; visibility: visible; transform: none;
+      background: none; border-top: 0; box-shadow: none; padding: 0 0 12px; min-width: 0;
+    }
+    .nav-sub a { padding: 9px 2px 9px 18px; font-size: 14.5px; color: var(--d-text) !important; }
+    .nav-sub a:hover { background: none; }
+    /* Same trap as .nav-login: .nav-sub-note sets --p-steel, which is a light-panel colour,
+       and the mobile panel is dark. Measured 2.39:1 on the rendered page. */
+    .nav-sub .nav-sub-note { padding-left: 18px; color: var(--d-muted); }
+    .nav-item::after { display: none; }
+    .nav-cta {
+      display: inline-block !important; margin-top: 22px; border-color: var(--p-gold);
+      color: var(--p-gold-light) !important; padding: 13px 30px;
+    }
+    .theme-dark .nav-login { color: var(--d-text) !important; }
+    .header-inner { position: relative; z-index: 950; }
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 991px) {
-    .nav { display: none; }
     .philosophy-grid,
     .services-grid,
     .team-grid,
@@ -1596,51 +1714,248 @@
   .award img { width: auto; max-width: 200px; height: auto; display: block; margin: 0 0 18px; }
   .award p { font-size: 12.5px; line-height: 1.7; color: var(--d-muted); margin: 0; }
 
+  /* ============================================================
+     INTERIOR PAGES, SECOND PASS — 2026-09-17
+
+     John: "the internal pages seem very basic, not very visually
+     appealing... we've lost some of our homepage feel throughout
+     the rest of the site." Correct, and the cause was structural:
+     the first pass rendered every page as ONE navy bar plus one
+     column of prose, which is a document, not a site.
+
+     The homepage's vocabulary is: a PHOTO hero with a gold
+     hairline, alternating navy/grey grounds so each section is its
+     own beat, an eyebrow + serif title with a gold italic accent,
+     white cards for anything enumerable, and a gold CTA close.
+     Interior pages now use that same vocabulary. Nothing new is
+     invented here — every value is a token the homepage set.
+     ============================================================ */
+
+  /* ── photo hero, built like the homepage's ── */
+  .page-hero {
+    position: relative;
+    padding: 0;
+    border-bottom: none;
+    background: var(--n-base);
+  }
+  .page-hero-media { position: relative; height: clamp(300px, 34vw, 440px); overflow: hidden; }
+  .page-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .page-hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(14,39,66,.34) 0%, rgba(14,39,66,.72) 100%);
+  }
+  .page-hero-card {
+    position: relative;
+    max-width: 880px;
+    margin: -110px auto 0;             /* the homepage's overlap, same device */
+    background: var(--g-card);
+    padding: 54px 60px 50px;
+    border-top: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 30px 70px rgba(8, 20, 36, 0.42);
+    text-align: center;
+  }
+  .page-hero-card::before {           /* the gold hairline, drawn like the homepage's */
+    content: ''; position: absolute; top: 0; left: 50%;
+    width: 56px; height: 2px; background: var(--p-gold);
+    transform: translateX(-50%) scaleX(0);
+    animation: hairline-draw .7s cubic-bezier(.16,1,.3,1) .5s both;
+  }
+  .page-hero-inner { padding: 150px 0 70px; }   /* used when a page has no photo */
+  .page-hero h1 { margin: 0 auto; max-width: 22ch; text-align: center; }
+  .page-hero-sub { margin: 22px auto 0; text-align: center; }
+  @media (prefers-reduced-motion: reduce) { .page-hero-card::before { animation: none; transform: translateX(-50%); } }
+
+  /* ── bands: each section is its own beat, alternating like the homepage ── */
+  .band { padding: 92px 0; }
+  .band-navy  { background: var(--n-base); }
+  .band-grey  { background: var(--g-base); }
+  .band-deep  { background: var(--g-deep); }
+  .band-head { text-align: center; max-width: 70ch; margin: 0 auto 52px; }
+  .band-head.left { text-align: left; margin-left: 0; }
+  .band-head h2 {
+    font-family: var(--font-display); font-weight: 400; color: var(--d-head);
+    font-size: clamp(28px, 3.4vw, 40px); line-height: 1.2; margin: 0;
+  }
+  .band-head h2 em { font-style: italic; color: var(--p-gold-light); }
+  .band-head p { margin: 20px auto 0; font-size: 16.5px; line-height: 1.8; color: var(--d-text); }
+  .band-head.left p { margin-left: 0; }
+
+  /* ── feature cards: what a run of h4 + p becomes ── */
+  .feature-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 26px;
+  }
+  .feature-card {
+    background: var(--p-white); padding: 32px 30px 34px;
+    display: flex; flex-direction: column;
+    transition: transform .4s ease, box-shadow .4s ease;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,.42); }
+  .feature-card .n {
+    font-family: var(--font-display); font-size: 13px; letter-spacing: 1px;
+    color: var(--p-gold-ink); margin-bottom: 14px;
+  }
+  .feature-card h4 {
+    font-family: var(--font-display); font-size: 19px; font-weight: 400; line-height: 1.3;
+    color: var(--p-blue); margin: 0 0 12px; letter-spacing: 0;
+  }
+  .feature-card p { font-size: 14.5px; line-height: 1.75; color: var(--p-steel); margin: 0; }
+
+  /* ── image + text split, the philosophy device ── */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .split.flip .split-media { order: 2; }
+  .split-media img { width: 100%; height: auto; display: block; }
+  .split-body h2 { margin-top: 0; }
+
+  /* ── closing CTA, the homepage's beat ── */
+  .page-cta {
+    background: linear-gradient(180deg, var(--n-cta) 0%, var(--n-cta-2) 100%);
+    padding: 84px 0; text-align: center;
+  }
+  .page-cta h2 {
+    font-family: var(--font-display); font-weight: 400; color: var(--d-head);
+    font-size: clamp(28px, 3.4vw, 40px); margin: 0 0 18px;
+  }
+  .page-cta h2 em { font-style: italic; color: var(--p-gold-light); }
+  .page-cta p { color: var(--d-text); font-size: 16.5px; line-height: 1.8; max-width: 62ch; margin: 0 auto 32px; }
+  .page-cta-actions { display: flex; gap: 26px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .page-cta .phone { color: var(--d-text); text-decoration: none; font-size: 15px; letter-spacing: .4px; }
+  .page-cta .phone:hover { color: var(--p-gold-light); }
+
+  @media (max-width: 991px) {
+    .page-hero-card { margin: -70px 20px 0; padding: 38px 28px 34px; }
+    .page-hero-inner { padding: 120px 0 54px; }
+    .band { padding: 62px 0; }
+    .split { grid-template-columns: 1fr; gap: 34px; }
+    .split.flip .split-media { order: 0; }
+  }
+
+  /* Consecutive images in a band sit side by side and are capped. Left to `width:100%` in a
+     74ch column, two portrait photos (1176x1661 and 1182x1773 on the About page) each rendered
+     ~900px tall and swallowed the section they illustrate. A memorial should be present and
+     dignified, not the loudest thing on the page. */
+  .media-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px; max-width: 760px; margin: 44px auto 0; align-items: start;
+  }
+  .media-row img { width: 100%; height: auto; display: block; margin: 0; }
+  .media-row.single { max-width: 460px; }
+  @media (max-width: 700px) { .media-row { grid-template-columns: 1fr; max-width: 420px; } }
+
 </style>
 </head>
 <body class="theme-dark">
 
 <header class="header">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true">
   <div class="header-inner">
     <a href="index.html" class="brand-mark" aria-label="QTR Family Wealth">
       <img src="assets/images/qtr-logo-white-transparent.png" alt="QTR Family Wealth">
     </a>
     <nav class="nav">
-      <a href="about.html">About</a>
-      <a href="advisory-services.html">Advisory</a>
-      <a href="team.html">Team</a>
-      <a href="insights.html">Insights</a>
-      <a href="client-portal.html">Client Portal</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
+      <div class="nav-item">
+        <a href="about.html">About Us <span class="nav-caret"></span></a>
+        <div class="nav-sub">
+          <a href="about.html">About QTR</a>
+          <a href="team.html">Our Team</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="personal-wealth.html">Personal Wealth</a></div>
+      <div class="nav-item">
+        <a href="business-services.html">Business Services <span class="nav-caret"></span></a>
+        <div class="nav-sub">
+          <a href="business-services.html">Business Services</a>
+          <a href="advisory-services.html">Advisory Services</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="insights.html">Insights</a></div>
+      <div class="nav-item">
+        <a href="#" onclick="return false" aria-haspopup="true">Disclosure Documents <span class="nav-caret"></span></a>
+        <div class="nav-sub">
+          <span class="nav-sub-note">Regulatory</span>
+          <a href="https://qtrfamily.com/wp-content/uploads/QTR_2aBrochure_2026.pdf" target="_blank" rel="noopener">Form ADV</a>
+          <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS &ndash; Relationship Summary</a>
+          <a href="disclosure-statement.html">Disclosure Statement</a>
+          <a href="privacy-policy.html">Data Privacy Policy</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-login" href="client-portal.html">Client Login</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-cta">Contact</a></div>
     </nav>
+    <label class="menu-btn" for="menu-toggle" aria-label="Menu" role="button" tabindex="0"><span></span><span></span><span></span></label>
   </div>
 </header>
 
 <section class="page-hero">
+  <div class="page-hero-media"><img src="assets/images/team-photo-optimized.jpg" alt="" width="1080" height="771"></div>
   <div class="container">
-    <p class="page-hero-eyebrow">The Firm</p>
-    <h1>About QTR Family Wealth</h1>
-    <p class="page-hero-sub">At QTR Family Wealth, we believe that wealth management should enhance your quality of life, not just your financial portfolio. Guided by our philosophy of Quality Time Remaining, we focus on helping you achieve financial freedom to create a legacy. To us, wealth extends beyond numbers—it encompasses financial, intellectual, social, human, and spiritual capital, each vital to a fulfilling life.</p>
+    <div class="page-hero-card">
+      <p class="page-hero-eyebrow">The Firm</p>
+      <h1>About QTR Family Wealth</h1>
+      <p class="page-hero-sub">At QTR Family Wealth, we believe that wealth management should enhance your quality of life, not just your financial portfolio. Guided by our philosophy of Quality Time Remaining, we focus on helping you achieve financial freedom to create a legacy. To us, wealth extends beyond numbers—it encompasses financial, intellectual, social, human, and spiritual capital, each vital to a fulfilling life.</p>
+    </div>
   </div>
 </section>
 
-<section class="page-body">
+<section class="band band-navy">
   <div class="container">
-    <div class="prose reveal">
+    <div class="band-head reveal">
       <h2>Streamline Your Financial Well-being</h2>
       <p>Our approach filters out the noise, providing you with clear and actionable advice tailored to your unique goals—whether you're planning for retirement, or looking for solutions for your business. We prioritize genuine human connection and personalized service, ensuring every decision supports your prosperity and the impact you want to make. Our team wants to help you maximize your time, protect your legacy, and build a foundation for future generations.</p>
+    </div>
+    <div class="prose center reveal">
       <p>In a world where private equity and big banks often prioritize profits over clients, we understand the importance of having full decision-making control to serve your best interests. Unlike larger institutions burdened by hidden fees and constraints, we reinvest those savings into superior services tailored for you. We ensure that every dollar you invest with us goes toward providing the best possible support for your family. We prioritize long-lasting relationships built on transparency, trust, and a comprehensive understanding of your financial goals. Our commitment to excellence aims to ensure that you receive the highest level of service and experience from the QTR team.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-grey">
+  <div class="container">
+    <div class="band-head reveal">
       <h2>Our Partners</h2>
       <p>We are proud to provide our wealth management solutions in partnership with Fidelity Investments and Charles Schwab.</p>
+    </div>
+    <div class="prose center reveal">
       <blockquote>“Quality is never an accident. It’s a result of purposeful effort.”</blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="band band-deep">
+  <div class="container">
+    <div class="band-head reveal">
       <h2>Giving Back</h2>
       <p>We are dedicated and long-term partners in the communities where we live and work. Managing partners, Chad and Wes Hunter, both born and raised in Orlando by their single mother, take immense pride in their roots and share a passion for giving back to the community that shaped them—values that are deeply ingrained in QTR’s mission.</p>
+    </div>
+    <div class="prose center reveal">
       <p>Each year, the QTR team supports local charitable initiatives through sponsorships and donations, reinforcing our commitment to making a meaningful impact in the community.</p>
       <p>Through our 100% QTR Community Partners Program, we provide our team members with paid time off to dedicate to volunteer service. These employee-led volunteer days often include members of our client family, allowing us to join forces and create a positive impact where we live and work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-navy">
+  <div class="container">
+    <div class="band-head reveal">
       <h2>Remembering Michael Wolfe</h2>
       <p>Mike, our friend and colleague, passed away unexpectedly during a pivotal time in our transition to QTR Family Wealth. To honor his memory, we named our conference room the Michael J. Wolfe Room and established the Michael J. Wolfe Memorial Fund. While we deeply miss him, we know his legacy will always remain at the heart of QTR, inspiring us to make each moment count—for ourselves and those we serve. Mike will forever be missed and remembered as part of the QTR family.</p>
+    </div>
+    <div class="media-row reveal">
       <img src="assets/images/Michael-Wolfe-Memorial-Plaque.png" alt="Michael Wolfe Memorial Plaque" width="1176" height="1661" loading="lazy" decoding="async">
       <img src="assets/images/mike-wolfe_headshot.jpg" alt="Mike Wolfe" width="1182" height="1773" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="page-cta">
+  <div class="container">
+    <div class="reveal">
+      <h2>Your legacy <em>starts here</em></h2>
+      <p>Whether you&rsquo;re building wealth, planning a business transition, or preparing to pass
+      it on, a conversation is where it begins.</p>
+      <div class="page-cta-actions">
+        <a href="contact.html" class="btn-gold">Schedule a Meeting</a>
+        <a class="phone" href="tel:4077450715">(407) 745-0715</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1653,7 +1968,7 @@
         <p class="footer-desc">Private wealth management for entrepreneurs, business owners, and multi-generational families. Independent. Fiduciary. Intentional.</p>
         <p class="footer-address">
           Primera Tower III<br>
-          605 Crescent Executive Ct #140<br>
+          605 Crescent Executive Ct #104<br>
           Lake Mary, FL 32746
         </p>
       </div>

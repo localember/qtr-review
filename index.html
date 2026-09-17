@@ -125,6 +125,56 @@
 
   .nav a:hover { color: var(--p-gold); }
 
+  /* ===== NAV — matched to the live site's menu, 2026-09-17 =====
+     Ours was a flat six-item bar and theirs is a seven-item menu with two dropdowns and a
+     Disclosure Documents group that we did not carry at all. On an RIA's site that group is not
+     decoration: Form ADV and Form CRS are the documents a prospect is entitled to find, and the
+     live menu puts them one click from every page. */
+  .nav { display: flex; gap: 30px; align-items: center; }
+  .nav-item { position: relative; display: flex; align-items: center; }
+
+  .nav-item > a { display: inline-flex; align-items: center; gap: 6px; }
+  .nav-caret { width: 7px; height: 7px; border-right: 1.5px solid currentColor;
+               border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-2px);
+               opacity: .55; transition: opacity .25s ease; }
+  .nav-item:hover .nav-caret { opacity: 1; }
+
+  .nav-sub {
+    position: absolute; top: 100%; left: -18px; min-width: 268px;
+    background: var(--p-white);
+    border-top: 2px solid var(--p-gold);
+    box-shadow: 0 22px 54px rgba(13, 30, 50, 0.22);
+    padding: 10px 0;
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s;
+    z-index: 200;
+  }
+  /* A gap between the trigger and the panel breaks hover on the way down; this bridges it. */
+  .nav-item::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 18px; }
+  .nav-item:hover .nav-sub,
+  .nav-item:focus-within .nav-sub { opacity: 1; visibility: visible; transform: translateY(0); }
+
+  .nav-sub a {
+    display: block; padding: 11px 24px; font-size: 13.5px; letter-spacing: .3px;
+    color: var(--p-blue) !important; white-space: nowrap;
+  }
+  .nav-sub a:hover { background: var(--p-snow); color: var(--p-gold-ink) !important; }
+  .nav-sub .nav-sub-note {
+    display: block; padding: 4px 24px 10px; font-size: 10.5px; letter-spacing: 1.4px;
+    text-transform: uppercase; color: var(--p-steel);
+  }
+  .nav-login {
+    font-size: 13px; letter-spacing: .4px; color: var(--p-steel) !important;
+  }
+  .nav-login:hover { color: var(--p-gold-ink) !important; }
+  /* ⚠️ .nav-login sets its own colour, which OVERRODE the dark-theme .nav a rule and printed
+     #475569 on the rgba(8,22,38,.84) header — measured 2.4:1 on the rendered page. A nav link
+     styled quieter than its siblings is fine; one quieter than legibility is not. Restated for
+     the dark theme so the muting is relative to its neighbours, not absolute. */
+  .theme-dark .nav-login { color: var(--d-muted) !important; }
+  .theme-dark .nav-login:hover { color: var(--p-gold-light) !important; }
+
+
   .nav-cta {
     border: 1px solid var(--p-blue);
     padding: 10px 24px;
@@ -1023,9 +1073,77 @@
     .hero-card, .hero-card::before { animation: none; }
   }
 
+
+  /* ===== MOBILE MENU — added 2026-09-17 =====
+     `.nav { display:none }` below 991px was survivable when the homepage was the only page. With
+     27 pages it means a phone visitor cannot reach ANY of them, and the client will open this on
+     a phone. A disclosed-by-default panel, no framework: a checkbox drives it so it works with
+     JavaScript off and is keyboard reachable. */
+  .menu-toggle { display: none; }
+  .menu-btn { display: none; }
+
+  @media (max-width: 991px) {
+    .menu-btn {
+      display: flex; flex-direction: column; justify-content: center; gap: 5px;
+      width: 44px; height: 44px; cursor: pointer; margin-left: auto;
+      background: none; border: 0; padding: 10px;
+    }
+    .menu-btn span {
+      display: block; height: 2px; width: 100%; background: var(--p-charcoal);
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .theme-dark .menu-btn span { background: var(--d-head); }
+    .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(2) { opacity: 0; }
+    .menu-toggle:checked ~ .header-inner .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* 🔴 .header carries `backdrop-filter`, and backdrop-filter (like filter and transform) makes
+       an element a CONTAINING BLOCK for position:fixed descendants. So this panel's inset:0
+       resolved to the HEADER'S box — a 70px strip — not the viewport, and the menu rendered as a
+       single visible link over the hero. Dropping the blur at mobile widths is what actually fixes
+       it; a solid header background replaces what the blur was doing. Measured 2026-09-17. */
+    .header { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--n-floor); }
+    .theme-dark .header { background: var(--n-floor); }
+
+    .nav {
+      display: block; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--n-floor); padding: 92px 28px 40px; overflow-y: auto;
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity .3s ease, transform .3s ease, visibility .3s;
+      z-index: 900;
+    }
+    /* ⚠️ `~ .nav` does NOT match: .nav is a CHILD of .header-inner, not a sibling of the
+       checkbox. The hamburger animated and the panel never opened, which looks like the
+       menu is broken rather than mis-selected. Descendant of the sibling is the right path. */
+    .menu-toggle:checked ~ .header-inner .nav { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-item { display: block; border-bottom: 1px solid var(--d-line); }
+    .nav-item > a {
+      display: block; padding: 17px 2px; font-size: 17px; color: var(--d-head) !important;
+      letter-spacing: .3px;
+    }
+    .nav-caret { display: none; }
+    /* Sub-items are always shown on mobile: a hover-only dropdown has no equivalent on touch,
+       and hiding Form ADV / Form CRS behind a gesture is the opposite of the point. */
+    .nav-sub {
+      position: static; opacity: 1; visibility: visible; transform: none;
+      background: none; border-top: 0; box-shadow: none; padding: 0 0 12px; min-width: 0;
+    }
+    .nav-sub a { padding: 9px 2px 9px 18px; font-size: 14.5px; color: var(--d-text) !important; }
+    .nav-sub a:hover { background: none; }
+    /* Same trap as .nav-login: .nav-sub-note sets --p-steel, which is a light-panel colour,
+       and the mobile panel is dark. Measured 2.39:1 on the rendered page. */
+    .nav-sub .nav-sub-note { padding-left: 18px; color: var(--d-muted); }
+    .nav-item::after { display: none; }
+    .nav-cta {
+      display: inline-block !important; margin-top: 22px; border-color: var(--p-gold);
+      color: var(--p-gold-light) !important; padding: 13px 30px;
+    }
+    .theme-dark .nav-login { color: var(--d-text) !important; }
+    .header-inner { position: relative; z-index: 950; }
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 991px) {
-    .nav { display: none; }
     .philosophy-grid,
     .services-grid,
     .team-grid,
@@ -1397,18 +1515,42 @@
 
 <!-- HEADER -->
 <header class="header">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true">
   <div class="header-inner">
     <a href="index.html" class="brand-mark" aria-label="QTR Family Wealth">
       <img src="assets/images/qtr-logo-white-transparent.png" alt="QTR Family Wealth">
     </a>
     <nav class="nav">
-      <a href="about.html">About</a>
-      <a href="advisory-services.html">Advisory</a>
-      <a href="team.html">Team</a>
-      <a href="insights.html">Insights</a>
-      <a href="client-portal.html">Client Portal</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
+      <div class="nav-item">
+        <a href="about.html">About Us <span class="nav-caret"></span></a>
+        <div class="nav-sub">
+          <a href="about.html">About QTR</a>
+          <a href="team.html">Our Team</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="personal-wealth.html">Personal Wealth</a></div>
+      <div class="nav-item">
+        <a href="business-services.html">Business Services <span class="nav-caret"></span></a>
+        <div class="nav-sub">
+          <a href="business-services.html">Business Services</a>
+          <a href="advisory-services.html">Advisory Services</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="insights.html">Insights</a></div>
+      <div class="nav-item">
+        <a href="#" onclick="return false" aria-haspopup="true">Disclosure Documents <span class="nav-caret"></span></a>
+        <div class="nav-sub">
+          <span class="nav-sub-note">Regulatory</span>
+          <a href="https://qtrfamily.com/wp-content/uploads/QTR_2aBrochure_2026.pdf" target="_blank" rel="noopener">Form ADV</a>
+          <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS &ndash; Relationship Summary</a>
+          <a href="disclosure-statement.html">Disclosure Statement</a>
+          <a href="privacy-policy.html">Data Privacy Policy</a>
+        </div>
+      </div>
+      <div class="nav-item"><a class="nav-login" href="client-portal.html">Client Login</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-cta">Contact</a></div>
     </nav>
+    <label class="menu-btn" for="menu-toggle" aria-label="Menu" role="button" tabindex="0"><span></span><span></span><span></span></label>
   </div>
 </header>
 
@@ -1650,7 +1792,7 @@
         <p class="footer-desc">Private wealth management for entrepreneurs, business owners, and multi-generational families. Independent. Fiduciary. Intentional.</p>
         <p class="footer-address">
           Primera Tower III<br>
-          605 Crescent Executive Ct #140<br>
+          605 Crescent Executive Ct #104<br>
           Lake Mary, FL 32746
         </p>
       </div>
