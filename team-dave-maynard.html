@@ -1069,10 +1069,13 @@
   }
 
   /* Reduced motion: everything lands in place, nothing moves, stats render final values (JS checks too) */
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce), (scripting: none) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .hero-card, .hero-card::before { animation: none; }
   }
+  .footer-logo img { height: 44px; width: auto; display: block; }
+  .founder-portrait { width: 72px; height: 90px; object-fit: cover; object-position: center 18%; display: block; margin-bottom: 14px; }
+  .hero-banner img { object-position: center 32%; }
 
 
   /* ===== MOBILE MENU — added 2026-09-17 =====
@@ -1272,9 +1275,13 @@
   .theme-dark .philosophy-quote cite { color: var(--d-muted); }
 
   /* SERVICES */
-  .theme-dark .services { background: var(--g-deep); }
+  .theme-dark .services { background: var(--p-ice); }
+  .theme-dark .services .section-title { color: #0E2742; }
+  .theme-dark .services .section-title em,
+  .theme-dark .services .section-eyebrow { color: var(--p-gold-ink); }
+  .theme-dark .service-card { border-top: 3px solid var(--p-gold); }
   /* Service cards kept WHITE */
-  .theme-dark .service-card { background: var(--p-white); border: none; }
+  .theme-dark .service-card { background: var(--p-white); border: none; border-top: 3px solid var(--p-gold); }
   .theme-dark .service-card:hover { background: var(--p-white); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
   .theme-dark .service-card h3 { color: var(--p-blue); }
   .theme-dark .service-card p { color: var(--p-steel); }
@@ -1293,9 +1300,14 @@
   .theme-dark .trust-label { color: var(--d-muted); }
 
   /* INSIGHTS */
-  .theme-dark .insights { background: var(--g-deep); }
+  .theme-dark .insights { background: var(--p-ice); }
+  .theme-dark .insights .section-title { color: #0E2742; }
+  .theme-dark .insights .section-title em,
+  .theme-dark .insights .section-eyebrow { color: var(--p-gold-ink); }
+  .theme-dark .insights .btn-line { color: #0E2742; }
+  .theme-dark .insight-card { border-top: 3px solid var(--p-gold); }
   /* Insight cards kept WHITE */
-  .theme-dark .insight-card { background: var(--p-white); border: none; }
+  .theme-dark .insight-card { background: var(--p-white); border: none; border-top: 3px solid var(--p-gold); }
   .theme-dark .insight-card h3 { color: var(--p-blue); }
   .theme-dark .insight-card p { color: var(--p-steel); }
 
@@ -1312,205 +1324,7 @@
     .theme-dark .trust-item:not(:last-child) { border-right: none; border-bottom: 1px solid var(--d-line); }
   }
 
-  /* ============================================================
-     INTERIOR PAGES — added 2026-09-09 for the page build.
-
-     Every value below is an EXISTING token. No new colour, no new
-     font, no new spacing scale: the homepage decided those and an
-     interior page that invents its own is a second design.
-
-     The one rule these pages add is a READING MEASURE. The homepage
-     is a sequence of short blocks; these carry 250-1300 words, and
-     unbounded line length is the difference between a brochure and
-     a document.
-     ============================================================ */
-
-  .page-hero {
-    background: var(--n-base);
-    padding: 168px 0 72px;          /* clears the fixed header */
-    border-bottom: 1px solid var(--d-line);
-  }
-  .page-hero .container { max-width: 1200px; }
-  .page-hero-eyebrow {
-    font-family: var(--font-body);
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--p-gold-light);
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
-  .page-hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(38px, 5vw, 60px);
-    line-height: 1.1;
-    font-weight: 400;
-    color: var(--d-head);
-    margin: 0;
-    max-width: 20ch;
-  }
-  .page-hero h1 em { font-style: italic; color: var(--p-gold-light); }
-  .page-hero-sub {
-    margin: 24px 0 0;
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--d-text);
-    max-width: 62ch;
-  }
-
-  .page-body { background: var(--g-deep); padding: 84px 0 96px; }
-  .page-body.on-grey { background: var(--g-base); }
-
-  .prose { max-width: 74ch; }
-  .prose.center { margin: 0 auto; }
-  .prose > *:first-child { margin-top: 0; }
-  .prose h2 {
-    font-family: var(--font-display);
-    font-size: clamp(26px, 3vw, 34px);
-    line-height: 1.25;
-    font-weight: 400;
-    color: var(--d-head);
-    margin: 56px 0 20px;
-  }
-  .prose h3 {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--d-head);
-    margin: 40px 0 14px;
-  }
-  .prose h4 {
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    color: var(--p-gold-light);
-    margin: 30px 0 8px;
-  }
-  .prose p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--d-text);
-    margin: 0 0 20px;
-  }
-  .prose ul { margin: 0 0 20px; padding-left: 20px; }
-  .prose li { font-size: 16px; line-height: 1.8; color: var(--d-text); margin-bottom: 8px; }
-  .prose blockquote {
-    margin: 40px 0;
-    padding: 4px 0 4px 28px;
-    border-left: 2px solid var(--p-gold);
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.5;
-    color: var(--d-head);
-  }
-  .prose img { width: 100%; height: auto; display: block; margin: 36px 0; }
-  .prose a { color: var(--p-gold-light); text-decoration: underline; text-underline-offset: 3px; }
-
-  /* Two-column figure rows, used where the live page pairs an image with a block */
-  .prose-figure { margin: 40px 0; }
-  .prose-figure img { margin: 0; }
-  .prose-figure figcaption {
-    margin-top: 12px; font-size: 13px; color: var(--d-muted); line-height: 1.6;
-  }
-
-  /* ── card grids: team index, insights index ── */
-  .idx-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 32px;
-  }
-  .idx-card {
-    background: var(--p-white);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .idx-card:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
-  .idx-card-img { aspect-ratio: 4 / 5; overflow: hidden; background: var(--g-base); }
-  .idx-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .idx-card.wide .idx-card-img { aspect-ratio: 16 / 10; }
-  .idx-card-body { padding: 24px 26px 28px; }
-  .idx-card-tag {
-    display: inline-block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--p-gold-ink); font-weight: 500; margin-bottom: 12px;
-  }
-  .idx-card h3 {
-    font-family: var(--font-display); font-size: 21px; font-weight: 400;
-    color: var(--p-blue); margin: 0 0 8px; line-height: 1.3;
-  }
-  .idx-card .role {
-    font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
-    color: var(--p-gold-ink); font-weight: 500; margin: 0 0 12px; line-height: 1.6;
-  }
-  .idx-card p { font-size: 14px; line-height: 1.7; color: var(--p-steel); margin: 0; }
-
-  /* ── team member page ── */
-  .member-grid {
-    display: grid; grid-template-columns: 380px 1fr; gap: 56px; align-items: start;
-  }
-  .member-photo { width: 100%; height: auto; display: block; }
-  .member-role {
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--p-gold-light); font-weight: 500; margin: 0 0 24px;
-  }
-
-  /* ── responsive video ── */
-  .video-embed {
-    position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 36px 0;
-    background: var(--n-floor);
-  }
-  .video-embed iframe {
-    position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block;
-  }
-
-  /* ── contact / portal detail blocks ── */
-  .detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
-  .detail h4 {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--p-gold-light); font-weight: 500; margin: 0 0 12px;
-  }
-  .detail p, .detail a { font-size: 16px; line-height: 1.8; color: var(--d-text); margin: 0; }
-  .detail a { color: var(--d-text); text-decoration: none; }
-  .detail a:hover { color: var(--p-gold-light); }
-
-  /* ── an honest note where the live site has nothing to carry ── */
-  .stub-note {
-    border: 1px solid var(--d-line);
-    border-left: 3px solid var(--p-gold);
-    padding: 22px 26px;
-    margin: 32px 0 0;
-    max-width: 74ch;
-  }
-  .stub-note p { font-size: 15px; line-height: 1.75; color: var(--d-muted); margin: 0; }
-
-  /* ── footer compliance disclaimer (IFP, required — see the note in the footer markup) ── */
-  .footer-disclaimer {
-    border-top: 1px solid var(--d-line);
-    margin-top: 32px;
-    padding-top: 26px;
-  }
-  .footer-disclaimer p {
-    font-size: 11.5px;
-    line-height: 1.75;
-    color: var(--d-muted);
-    margin: 0 0 12px;
-    max-width: none;
-  }
-  .footer-disclaimer a { color: var(--d-muted); text-decoration: underline; text-underline-offset: 2px; }
-  .footer-disclaimer a:hover { color: var(--p-gold-light); }
-  .footer-disclaimer .refs { margin: 0; }
-
-  @media (max-width: 991px) {
-    .page-hero { padding: 130px 0 56px; }
-    .page-body { padding: 60px 0 72px; }
-    .member-grid { grid-template-columns: 1fr; gap: 32px; }
-    .member-photo { max-width: 340px; }
-  }
-
-
+  
   /* ============================================================
      INTERIOR PAGES — added 2026-09-09 for the page build.
 
@@ -1841,19 +1655,271 @@
   .media-row.single { max-width: 460px; }
   @media (max-width: 700px) { .media-row { grid-template-columns: 1fr; max-width: 420px; } }
 
-</style>
-<style>
-  .idx-initials, .member-initials {
-    display: flex; align-items: center; justify-content: center; width: 100%;
-    background: var(--p-blue-deep); color: var(--p-gold-light);
-    font-family: var(--font-display); font-weight: 500; letter-spacing: 0.12em;
+  /* ============================================================
+     v2 — 2026-10-19. Gold and grey stay. Light tweaks only:
+     one or two ice bands a page, overlay heroes, no grey card.
+     ============================================================ */
+
+  .page-hero.has-photo {
+    position: relative;
+    min-height: clamp(440px, 56vw, 620px);
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+    background: #1a202c;
+    border-bottom: none;
   }
-  .idx-initials { aspect-ratio: 4 / 5; font-size: clamp(36px, 4vw, 52px); }
-  .member-initials { aspect-ratio: 1707 / 2560; font-size: 72px; }
-  @media (max-width: 991px) { .member-initials { max-width: 340px; font-size: 56px; } }
+  .page-hero.has-photo .page-hero-media {
+    position: absolute; inset: 0; height: auto; overflow: hidden;
+  }
+  .page-hero.has-photo .page-hero-media img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .page-hero.has-photo .page-hero-media::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(201,168,76,.18), rgba(201,168,76,0) 58%),
+      linear-gradient(180deg, rgba(26,32,44,.25) 0%, rgba(26,32,44,.82) 100%);
+  }
+  .page-hero-copy {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 1200px;
+    padding: 150px 24px 52px;
+    margin: 0 auto;
+  }
+  .page-hero.has-photo h1 {
+    color: #fff; text-align: left; margin: 0;
+    max-width: 16ch; padding-left: 16px;
+    border-left: 3px solid var(--p-gold);
+  }
+  .page-hero.has-photo .page-hero-eyebrow {
+    color: var(--p-gold-light); text-align: left;
+    margin: 0 0 14px 16px;
+  }
+  .page-hero.has-photo .page-hero-sub {
+    color: rgba(255,255,255,.9); text-align: left;
+    margin: 16px 0 0 16px; max-width: 640px;
+  }
+  .pos-faces img { object-position: 50% 35%; }
+  .pos-lobby img { object-position: 50% 30%; }
+
+  .page-hero-plain {
+    background: var(--g-base);
+    padding: 0;
+    border-bottom: none;
+  }
+  .page-hero-plain .page-hero-inner { padding: 148px 24px 56px; text-align: center; }
+  .page-hero-plain h1,
+  .page-hero-plain .page-hero-sub { text-align: center; margin-left: auto; margin-right: auto; color: var(--d-head); }
+  .page-hero-plain .page-hero-sub { color: var(--d-text); }
+  .page-hero-plain.is-portal { border-bottom: 3px solid var(--p-gold); }
+
+  .band-ice { background: var(--p-ice); }
+  .band-ice .band-head h2,
+  .band-ice h2, .band-ice h3,
+  .band-ice .split-body h2 { color: #0E2742; }
+  .band-ice .band-head p,
+  .band-ice .prose p,
+  .band-ice .split-body p,
+  .band-ice .detail p,
+  .band-ice .detail a { color: #3A4250; }
+  .band-ice .band-head p { color: #3A4250; }
+
+  .band-head { max-width: 680px; text-align: center; margin-left: auto; margin-right: auto; }
+  .band-head p { text-align: center; max-width: 680px; }
+  .prose p, .post-body p, .split-body p { text-align: left; }
+  .prose { max-width: 720px; }
+
+  .feature-card { border-top: 3px solid var(--p-gold); background: #fff; }
+  .feature-card .n { display: none; }
+  .show-numbers .feature-card .n { display: block; }
+  .feature-grid.wrap, .team-grid-9, .insight-quad {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;
+  }
+  .feature-grid.wrap .feature-card { flex: 0 1 calc(33.333% - 22px); min-width: 240px; }
+  .pw-grid .feature-card h4 { min-height: 2.6em; }
+
+  .split-body h2 { margin-top: 0; }
+  .why-grid .feature-card h4 { color: #0E2742; }
+
+  .quote-band { text-align: center; }
+  .quote-band blockquote {
+    font-family: var(--font-display); font-style: italic; font-weight: 400;
+    font-size: clamp(26px, 3vw, 36px); line-height: 1.35; color: var(--d-head);
+    max-width: 18em; margin: 0 auto 18px; border: 0; padding: 0;
+  }
+  .quote-band .cap { color: var(--p-gold-light); font-size: 14px; letter-spacing: .4px; margin: 0; }
+
+  .memory { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .memory-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .memory-pair img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; margin: 0; }
+  .memory h2 { color: var(--d-head); margin-top: 0; }
+  .memory p { color: var(--d-text); text-align: left; }
+
+  .jump-tabs {
+    position: sticky; top: 0; z-index: 30;
+    background: #fff; border-bottom: 1px solid #E2E6ED;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px;
+    padding: 14px 16px;
+  }
+  .jump-tabs a {
+    color: var(--p-gold-ink); text-decoration: none;
+    font-size: 13px; letter-spacing: .6px; font-weight: 500;
+  }
+  .jump-tabs a:hover { color: #0E2742; }
+  .advise-row { display: grid; grid-template-columns: 1fr 2fr; gap: 36px; align-items: start; }
+  .advise-row h2 { text-align: left; margin: 0 0 10px; color: inherit; }
+  .advise-intro p { text-align: left; margin: 0; }
+  .advise-row .feature-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+  .advise-row .feature-card { flex: 1 1 calc(50% - 18px); min-width: 200px; }
+
+  .contact-split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: stretch; }
+  .contact-details h2 { margin-top: 0; color: #0E2742; }
+  .contact-details p, .contact-details a { color: #3A4250; font-size: 17px; line-height: 1.7; }
+  .contact-details a { text-decoration: none; }
+  .contact-details a:hover { color: var(--p-gold-ink); }
+  .contact-links { display: flex; gap: 18px; margin: 8px 0 22px; }
+  .contact-map { width: 100%; min-height: 380px; border: 0; background: #e6e9ef; }
+
+  .portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .portal-card {
+    background: #fff; border-top: 3px solid var(--p-gold); padding: 32px 28px 28px;
+  }
+  .portal-card h3 {
+    font-family: var(--font-display); font-weight: 400; font-size: 28px;
+    color: #0E2742; margin: 0 0 10px;
+  }
+  .portal-card p { color: #3A4250; margin: 0 0 22px; }
+  .update-strip {
+    margin-top: 28px; background: var(--g-base); color: #fff;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 18px 22px;
+  }
+  .update-strip p { margin: 0; color: #fff; }
+  .update-strip a { color: var(--p-gold-light); text-decoration: none; white-space: nowrap; }
+
+  .team-grid-9 .idx-card { flex: 0 1 calc(33.333% - 22px); max-width: 380px; border: 1px solid #E2E6ED; border-top: none; }
+  .team-grid-9 .idx-card-body { border-top: 3px solid var(--p-gold); }
+  .team-grid-9 .idx-card-img img { object-position: center 15%; }
+  .team-grid-9 .idx-card h3 { font-family: var(--font-display); }
+  .team-grid-9 .idx-card .role {
+    text-transform: uppercase; letter-spacing: 1.2px; color: var(--p-gold-ink); font-size: 11px;
+  }
+  .team-grid-9 .excerpt {
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .team-grid-9 .read-bio { display: none; }
+  .band-white { background: #fff; }
+  .band-white .band-head p { color: #3A4250; }
+  .intro-plain { background: #fff; padding: 48px 0 12px; }
+  .intro-plain h2 {
+    font-family: var(--font-display); font-weight: 400; font-size: clamp(28px, 3vw, 36px);
+    color: #0E2742; text-align: center; margin: 0;
+  }
+  .intro-plain p { color: #3A4250; text-align: center; max-width: 680px; margin: 14px auto 0; }
+  .band-ice .member-contact a { color: #0E2742; }
+  .band-ice .creds, .band-white .role { color: var(--p-gold-ink); }
+  .band-ice .fine { color: #5c6570; }
+  .related-row a h3, .related-row a p { color: #0E2742; }
+  .related-row a .creds { color: var(--p-gold-ink); }
+  .idx-initials, .member-initials {
+    background: linear-gradient(160deg, #5c656f 0%, #3E444C 100%) !important;
+    color: var(--p-gold-light);
+  }
+  .idx-initials span, .member-initials span {
+    display: flex; align-items: center; justify-content: center;
+    width: 46%; aspect-ratio: 1; border-radius: 50%;
+    border: 2px solid var(--p-gold); letter-spacing: .08em;
+  }
+  .award-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; }
+  .award { text-align: center; max-width: 360px; }
+  .award img { height: 160px; width: auto; max-width: 100%; margin: 0 auto 12px; }
+  .award p { font-size: 12px; line-height: 1.6; text-align: center; }
+
+  .member-photo-col { position: sticky; top: 96px; }
+  .member-photo, .member-initials.member-photo {
+    width: 380px; max-width: 100%; height: 475px; object-fit: cover; aspect-ratio: 4 / 5;
+  }
+  .member-initials.member-photo { display: flex; }
+  .member-contact { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+  .member-contact a { color: var(--d-text); text-decoration: none; }
+  .member-contact a:hover { color: var(--p-gold-light); }
+  .member-bio { max-width: 680px; }
+  .member-bio .fine {
+    font-size: 12.5px; line-height: 1.6; color: var(--d-muted); margin-top: 28px;
+  }
+  .creds { font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--p-gold-light); margin: 0 0 18px; }
+
+  .insight-feature {
+    display: grid; grid-template-columns: 1.15fr 1fr; background: #fff;
+    border-top: 3px solid var(--p-gold); text-decoration: none; color: inherit;
+    margin-bottom: 28px;
+  }
+  .insight-feature img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 240px; }
+  .insight-feature div { padding: 32px 28px; }
+  .insight-feature h3 { font-family: var(--font-display); font-weight: 400; font-size: 28px; color: #0E2742; margin: 8px 0 12px; }
+  .insight-feature p { color: #3A4250; margin: 0; text-align: left; }
+  .insight-quad .idx-card { flex: 0 1 calc(50% - 16px); max-width: none; }
+  .insight-quad .idx-card-img { aspect-ratio: 16 / 10; }
+  .yt-strip {
+    margin-top: 36px; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    background: var(--g-base); color: #fff; padding: 18px 22px;
+  }
+  .yt-strip a { color: var(--p-gold-light); }
+
+  .post-media { width: 100%; margin: 0 0 28px; }
+  .post-media img { width: 100%; height: auto; display: block; }
+  .post-body { max-width: 720px; margin: 0 auto; }
+  .post-body p { font-size: 18px; line-height: 1.75; text-align: left; }
+  .key-points {
+    background: #fff; border-top: 3px solid var(--p-gold);
+    padding: 18px 22px 8px; margin: 0 auto 28px; max-width: 720px;
+  }
+  .key-points h2 { font-size: 18px; margin: 0 0 8px; color: #0E2742; }
+  .key-points li { color: #3A4250; margin: 0 0 6px; }
+  .related { margin-top: 48px; }
+  .related h2 { text-align: center; color: #0E2742; }
+  .related-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .related-row a {
+    flex: 1 1 280px; max-width: 420px; background: #fff; border-top: 3px solid var(--p-gold);
+    text-decoration: none; padding: 20px 18px; color: #0E2742;
+  }
+
+  .legal-reading { background: var(--p-ice); }
+  .legal-reading .prose { max-width: 720px; margin: 0 auto; }
+  .legal-reading .prose, .legal-reading .prose p, .legal-reading .prose li { color: #243044; font-size: 16px; text-align: left; }
+  .legal-reading .prose h2, .legal-reading .prose h3 { color: #0E2742; margin-top: 40px; }
+  .legal-reading .prose ul { padding-left: 1.25em; }
+  .legal-reading table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 15px; }
+  .legal-reading td, .legal-reading th {
+    border: 1px solid #E2E6ED; padding: 10px 12px; text-align: left; vertical-align: top; color: #243044;
+  }
+  .legal-reading th { background: #fff; }
+
+  @media (max-width: 991px) {
+    .page-hero.has-photo { min-height: 420px; }
+    .page-hero-copy { padding: 120px 20px 36px; }
+    .feature-grid.wrap .feature-card { flex-basis: calc(50% - 16px); }
+    .team-grid-9 .idx-card { flex-basis: calc(50% - 16px); }
+    .advise-row, .contact-split, .memory, .insight-feature, .portal-grid { grid-template-columns: 1fr; }
+    .member-photo-col { position: static; text-align: center; }
+    .member-photo, .member-initials.member-photo { width: min(320px, 100%); height: auto; margin: 0 auto; }
+    .update-strip, .yt-strip { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 640px) {
+    .team-grid-9 .idx-card {
+      flex: 1 1 100%; max-width: none; flex-direction: row; align-items: center;
+    }
+    .team-grid-9 .idx-card-img { width: 112px; flex: none; aspect-ratio: 4 / 5; }
+    .team-grid-9 .excerpt { display: none; }
+    .team-grid-9 .read-bio { display: block; margin: 8px 0 0; font-size: 12px; letter-spacing: .8px; text-transform: uppercase; color: var(--p-gold-ink); }
+    .feature-grid.wrap .feature-card, .insight-quad .idx-card { flex-basis: 100%; }
+  }
+
 </style>
 </head>
 <body class="theme-dark">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
 <header class="header">
   <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true">
@@ -1883,7 +1949,7 @@
         <div class="nav-sub">
           <span class="nav-sub-note">Regulatory</span>
           <a href="https://qtrfamily.com/wp-content/uploads/QTR_2aBrochure_2026.pdf" target="_blank" rel="noopener">Form ADV</a>
-          <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS &ndash; Relationship Summary</a>
+          <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS: Relationship Summary</a>
           <a href="disclosure-statement.html">Disclosure Statement</a>
           <a href="privacy-policy.html">Data Privacy Policy</a>
         </div>
@@ -1895,24 +1961,30 @@
   </div>
 </header>
 
-<section class="page-hero">
+<section class="page-hero page-hero-plain">
   <div class="container page-hero-inner">
     <p class="page-hero-eyebrow">The People</p>
     <h1>David Maynard</h1>
   </div>
 </section>
 
-<section class="page-body">
+<section class="band band-ice">
   <div class="container">
-    <div class="member-grid reveal">
-      <div><div class="member-initials" aria-hidden="true">DM</div></div>
-      <div class="prose">
-        <p class="member-role">Chief Technology Officer (CTO)</p>
-      <h2>David Maynard</h2>
-      <p>Dave serves as Chief Technology Officer at QTR Family Wealth, where he leads technology strategy, drives operational and performance efficiencies, and helps the firm navigate the rapidly evolving landscape of artificial intelligence and its applications within the financial services industry. His focus is on leveraging innovative technologies to streamline processes, enhance productivity, strengthen infrastructure, and support the firm's long-term growth and exceptional client experience.</p>
-      <p>Dave earned his degree in Computer Science from Florida State University, with a minor in Mathematics. He brings decades of experience in software engineering, technology innovation, and executive leadership, including more than 24 years supporting government defense, simulation, and training initiatives.</p>
-      <p>His extensive experience includes supporting every branch of the U.S. military, multiple federal intelligence and national security agencies, and leading research organizations.</p>
-      <p>At QTR Family Wealth, Dave combines his extensive technical expertise with a forward-thinking approach to innovation, helping the firm responsibly embrace emerging technologies, improve operational effectiveness, and remain at the forefront of an increasingly technology-driven financial services industry. His work supports QTR's commitment to delivering sophisticated, efficient, and highly personalized wealth management solutions while remaining compliant. </p>
+    <div class="member-grid">
+      <div class="member-photo-col">
+        <div class="member-initials member-photo" aria-hidden="true"><span>DM</span></div>
+        <div class="member-contact">
+          <a href="tel:4077450715">(407) 745-0715</a>
+          <a href="mailto:info@qtrfamily.com">info@qtrfamily.com</a>
+          <a href="contact.html" class="btn-gold">Schedule a meeting</a>
+        </div>
+      </div>
+      <div class="prose member-bio">
+        <p class="creds">Chief Technology Officer (CTO)</p>
+        <p>Dave serves as Chief Technology Officer at QTR Family Wealth, where he leads technology strategy, drives operational and performance efficiencies, and helps the firm navigate the rapidly evolving landscape of artificial intelligence and its applications within the financial services industry. His focus is on leveraging innovative technologies to streamline processes, enhance productivity, strengthen infrastructure, and support the firm's long-term growth and exceptional client experience.</p>
+        <p>Dave earned his degree in Computer Science from Florida State University, with a minor in Mathematics. He brings decades of experience in software engineering, technology innovation, and executive leadership, including more than 24 years supporting government defense, simulation, and training initiatives.</p>
+        <p>His extensive experience includes supporting every branch of the U.S. military, multiple federal intelligence and national security agencies, and leading research organizations.</p>
+        <p>At QTR Family Wealth, Dave combines his extensive technical expertise with a forward-thinking approach to innovation, helping the firm responsibly embrace emerging technologies, improve operational effectiveness, and remain at the forefront of an increasingly technology-driven financial services industry. His work supports QTR's commitment to delivering sophisticated, efficient, and highly personalized wealth management solutions while remaining compliant. </p>
         <p style="margin-top:36px"><a href="team.html">&larr; All of the team</a></p>
       </div>
     </div>
@@ -1923,7 +1995,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand-name">QTR</div>
+        <a href="index.html" class="footer-logo" aria-label="QTR Family Wealth"><img src="assets/images/qtr-logo-white-transparent.png" alt="QTR Family Wealth"></a>
         <p class="footer-desc">Private wealth management for entrepreneurs, business owners, and multi-generational families. Independent. Fiduciary. Intentional.</p>
         <p class="footer-address">
           Primera Tower III<br>

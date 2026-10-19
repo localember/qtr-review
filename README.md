@@ -9,3 +9,4 @@ Static freeze of the QTR build, published for client review only.
   truth is `qtr/dist/qtr/`, emitted by `tools/qtr/build-pages.py`.
 - Forms are not wired: a static page has no backend and the lead destination is still an
   open decision. Phone and email links work.
+- `TODO.md` is internal. It is not linked from the nav, the footer, or the sitemap.

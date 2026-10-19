@@ -1068,10 +1068,13 @@
   }
 
   /* Reduced motion: everything lands in place, nothing moves, stats render final values (JS checks too) */
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce), (scripting: none) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .hero-card, .hero-card::before { animation: none; }
   }
+  .footer-logo img { height: 44px; width: auto; display: block; }
+  .founder-portrait { width: 72px; height: 90px; object-fit: cover; object-position: center 18%; display: block; margin-bottom: 14px; }
+  .hero-banner img { object-position: center 32%; }
 
 
   /* ===== MOBILE MENU — added 2026-09-17 =====
@@ -1271,9 +1274,13 @@
   .theme-dark .philosophy-quote cite { color: var(--d-muted); }
 
   /* SERVICES */
-  .theme-dark .services { background: var(--g-deep); }
+  .theme-dark .services { background: var(--p-ice); }
+  .theme-dark .services .section-title { color: #0E2742; }
+  .theme-dark .services .section-title em,
+  .theme-dark .services .section-eyebrow { color: var(--p-gold-ink); }
+  .theme-dark .service-card { border-top: 3px solid var(--p-gold); }
   /* Service cards kept WHITE */
-  .theme-dark .service-card { background: var(--p-white); border: none; }
+  .theme-dark .service-card { background: var(--p-white); border: none; border-top: 3px solid var(--p-gold); }
   .theme-dark .service-card:hover { background: var(--p-white); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
   .theme-dark .service-card h3 { color: var(--p-blue); }
   .theme-dark .service-card p { color: var(--p-steel); }
@@ -1292,9 +1299,14 @@
   .theme-dark .trust-label { color: var(--d-muted); }
 
   /* INSIGHTS */
-  .theme-dark .insights { background: var(--g-deep); }
+  .theme-dark .insights { background: var(--p-ice); }
+  .theme-dark .insights .section-title { color: #0E2742; }
+  .theme-dark .insights .section-title em,
+  .theme-dark .insights .section-eyebrow { color: var(--p-gold-ink); }
+  .theme-dark .insights .btn-line { color: #0E2742; }
+  .theme-dark .insight-card { border-top: 3px solid var(--p-gold); }
   /* Insight cards kept WHITE */
-  .theme-dark .insight-card { background: var(--p-white); border: none; }
+  .theme-dark .insight-card { background: var(--p-white); border: none; border-top: 3px solid var(--p-gold); }
   .theme-dark .insight-card h3 { color: var(--p-blue); }
   .theme-dark .insight-card p { color: var(--p-steel); }
 
@@ -1512,6 +1524,7 @@
 </style>
 </head>
 <body class="theme-dark">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
 <!-- HEADER -->
 <header class="header">
@@ -1542,7 +1555,7 @@
         <div class="nav-sub">
           <span class="nav-sub-note">Regulatory</span>
           <a href="https://qtrfamily.com/wp-content/uploads/QTR_2aBrochure_2026.pdf" target="_blank" rel="noopener">Form ADV</a>
-          <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS &ndash; Relationship Summary</a>
+          <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS: Relationship Summary</a>
           <a href="disclosure-statement.html">Disclosure Statement</a>
           <a href="privacy-policy.html">Data Privacy Policy</a>
         </div>
@@ -1558,7 +1571,7 @@
 <section class="hero">
   <div class="hero-shell reveal">
     <div class="hero-banner">
-      <img src="assets/images/team-photo-optimized.jpg" alt="QTR Family Wealth team in lobby">
+      <img src="assets/images/hero-home-team.jpg" alt="QTR Family Wealth team in the lobby">
     </div>
     <div class="hero-card">
       <p class="hero-eyebrow">Private Wealth Management</p>
@@ -1605,6 +1618,7 @@
         <p class="philosophy-body">We believe true wealth extends beyond numbers. It encompasses financial, intellectual, social, human, and spiritual capital, each vital to a fulfilling life.</p>
         <p class="philosophy-body">Our approach filters out the noise, providing clear and actionable guidance tailored to your unique goals, whether you're planning for retirement, preparing for a business transition, or building a legacy for future generations.</p>
         <div class="philosophy-quote">
+          <img class="founder-portrait" src="assets/images/founder-wes.jpg" alt="Wes Hunter">
           <blockquote>&ldquo;True wealth is measured in time well spent.&rdquo;</blockquote>
           <cite>Wes Hunter, Co-Founder</cite>
         </div>
@@ -1634,7 +1648,7 @@
       </a>
       <a href="business-services.html" class="service-card">
         <div class="service-card-image">
-          <img src="assets/images/wow-services-hero-scaled.jpg" alt="Business services">
+          <img src="assets/images/business-trading.jpg" alt="Chad Hunter at the trading screens">
         </div>
         <div class="service-card-body">
           <div class="service-number">02</div>
@@ -1645,7 +1659,7 @@
       </a>
       <a href="advisory-services.html" class="service-card">
         <div class="service-card-image">
-          <img src="assets/images/qtr-personal-stories.jpg" alt="Trust and estate planning">
+          <img src="assets/images/advisory-desk.jpg" alt="Nicole Di Pietro and Chad Hunter in an advice conversation">
         </div>
         <div class="service-card-body">
           <div class="service-number">03</div>
@@ -1739,7 +1753,7 @@
     <div class="insights-grid reveal">
       <a href="insight-thinking-about-retirement.html" class="insight-card insight-featured">
         <div class="insight-image">
-          <img src="assets/images/retirement-couple-700x452.jpg" alt="You’re a Business Owner Who’s Thinking About Retirement.">
+          <img src="assets/images/retirement-couple.jpg" alt="You’re a Business Owner Who’s Thinking About Retirement.">
         </div>
         <div class="insight-body">
           <span class="insight-tag">Blogs &middot; Jan 10, 2025</span>
@@ -1788,7 +1802,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand-name">QTR</div>
+        <a href="index.html" class="footer-logo" aria-label="QTR Family Wealth"><img src="assets/images/qtr-logo-white-transparent.png" alt="QTR Family Wealth"></a>
         <p class="footer-desc">Private wealth management for entrepreneurs, business owners, and multi-generational families. Independent. Fiduciary. Intentional.</p>
         <p class="footer-address">
           Primera Tower III<br>
