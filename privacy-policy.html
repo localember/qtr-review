@@ -1890,6 +1890,8 @@
   .legal-reading .prose, .legal-reading .prose p, .legal-reading .prose li { color: #243044; font-size: 16px; text-align: left; }
   .legal-reading .prose h2, .legal-reading .prose h3 { color: #0E2742; margin-top: 40px; }
   .legal-reading .prose ul { padding-left: 1.25em; }
+  .legal-reading .prose ul.cols-2 { columns: 2; column-gap: 2.5rem; }
+  .legal-reading .prose ul.cols-2 li { break-inside: avoid; }
   .legal-reading table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 15px; }
   .legal-reading td, .legal-reading th {
     border: 1px solid #E2E6ED; padding: 10px 12px; text-align: left; vertical-align: top; color: #243044;
@@ -1914,6 +1916,7 @@
     .team-grid-9 .excerpt { display: none; }
     .team-grid-9 .read-bio { display: block; margin: 8px 0 0; font-size: 12px; letter-spacing: .8px; text-transform: uppercase; color: var(--p-gold-ink); }
     .feature-grid.wrap .feature-card, .insight-quad .idx-card { flex-basis: 100%; }
+    .legal-reading .prose ul.cols-2 { columns: 1; }
   }
 
 </style>
@@ -1984,48 +1987,28 @@
 <p>Registered Investment Advisors (“RIAs”) must share some of your personal information in the course of servicing your account. Federal and State laws give you the right to limit some of this sharing and require RIAs to disclose how we collect, share, and protect your personal information.</p>
 
 <h3>What information do we collect from you?</h3>
-<table>
-<tbody>
-<tr>
-<td>Social security or taxpayer identification number</td>
-<td>Assets and liabilities</td>
-</tr>
-<tr>
-<td>Name, address and phone number(s)</td>
-<td>Income and expenses</td>
-</tr>
-<tr>
-<td>E-mail address(es)</td>
-<td>Investment activity</td>
-</tr>
-<tr>
-<td>Account information (including other institutions)</td>
-<td>Investment experience and goals</td>
-</tr>
-<tr>
-<td>Usage data</td>
-<td>Tracking &amp; cookies data</td>
-</tr>
-</tbody>
-</table>
+<ul class="cols-2">
+<li>Social security or taxpayer identification number</li>
+<li>Assets and liabilities</li>
+<li>Name, address and phone number(s)</li>
+<li>Income and expenses</li>
+<li>E-mail address(es)</li>
+<li>Investment activity</li>
+<li>Account information (including other institutions)</li>
+<li>Investment experience and goals</li>
+<li>Usage data</li>
+<li>Tracking &amp; cookies data</li>
+</ul>
 
 <h3>What Information do we collect from other sources?</h3>
-<table>
-<tbody>
-<tr>
-<td>Custody, brokerage and advisory agreements</td>
-<td>Account applications and forms</td>
-</tr>
-<tr>
-<td>Other advisory agreements and legal documents</td>
-<td>Investment questionnaires and suitability documents</td>
-</tr>
-<tr>
-<td>Transactional information with us or others</td>
-<td>Other information needed to service account</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>Custody, brokerage and advisory agreements</li>
+<li>Account applications and forms</li>
+<li>Other advisory agreements and legal documents</li>
+<li>Investment questionnaires and suitability documents</li>
+<li>Transactional information with us or others</li>
+<li>Other information needed to service account</li>
+</ul>
 
 <h3>How do we protect your information?</h3>
 <p>To safeguard your personal information from unauthorized access and use we maintain physical, procedural and electronic security measures. These include such safeguards as secure passwords, encrypted file storage and a secure office environment. Our technology vendors provide security and access control over personal information and have policies over the transmission of data. Our associates are trained on their responsibilities to protect Client’s personal information.</p>
