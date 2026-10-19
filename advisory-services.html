@@ -1767,11 +1767,20 @@
     font-size: 13px; letter-spacing: .6px; font-weight: 500;
   }
   .jump-tabs a:hover { color: #0E2742; }
-  .advise-row { display: grid; grid-template-columns: 1fr 2fr; gap: 36px; align-items: start; }
-  .advise-row h2 { text-align: left; margin: 0 0 10px; color: inherit; }
-  .advise-intro p { text-align: left; margin: 0; }
-  .advise-row .feature-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
-  .advise-row .feature-card { flex: 1 1 calc(50% - 18px); min-width: 200px; }
+  .advise-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 28px 48px; align-items: start; }
+  .advise-intro h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(28px, 3vw, 40px); line-height: 1.15;
+    text-align: left; margin: 0 0 12px; color: #F4F6F8;
+  }
+  .advise-intro p {
+    text-align: left; margin: 0; font-size: 16.5px; line-height: 1.6;
+    color: #D6DBE1; max-width: 32ch;
+  }
+  .band-ice .advise-intro h2 { color: #0E2742; }
+  .band-ice .advise-intro p { color: #3A4250; }
+  .advise-row .feature-grid { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 18px; margin: 0; }
+  .advise-row .feature-card { flex: 1 1 calc(50% - 18px); min-width: 220px; }
 
   .contact-split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: stretch; }
   .contact-details h2 { margin-top: 0; color: #0E2742; }
@@ -1983,6 +1992,7 @@
     <div class="advise-row show-numbers">
       <div class="advise-intro">
         <h2>Financial Planning</h2>
+        <p>Cash flow, financial independence, and tax planning.</p>
       </div>
     <div class="feature-grid wrap show-numbers">
       <div class="feature-card">
@@ -2009,6 +2019,7 @@
     <div class="advise-row show-numbers">
       <div class="advise-intro">
         <h2>Trust, Estate, and Philanthropic Planning</h2>
+        <p>Trusts, multi-generational guidance, and charitable giving.</p>
       </div>
     <div class="feature-grid wrap show-numbers">
       <div class="feature-card">
@@ -2050,6 +2061,7 @@
     <div class="advise-row show-numbers">
       <div class="advise-intro">
         <h2>Insurance</h2>
+        <p>Life, long-term care, disability, and property coverage.</p>
       </div>
     <div class="feature-grid wrap show-numbers">
       <div class="feature-card">
@@ -2091,6 +2103,7 @@
     <div class="advise-row show-numbers">
       <div class="advise-intro">
         <h2>Credit and Lending</h2>
+        <p>Lending through outside partners, arranged around your assets.</p>
       </div>
     <div class="feature-grid wrap show-numbers">
       <div class="feature-card">
