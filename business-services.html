@@ -1916,6 +1916,195 @@
     .feature-grid.wrap .feature-card, .insight-quad .idx-card { flex-basis: 100%; }
   }
 
+  /* Business Services cards v3. This page only. */
+  .bs-services.band {
+    padding: 96px 0;
+    background: #F0F2F6;
+  }
+  .bs-services .band-head,
+  .bs-ongoing .band-head {
+    max-width: 720px;
+    text-align: center;
+    margin: 0 auto 52px;
+  }
+  .bs-services .band-head h2,
+  .bs-ongoing .band-head h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .bs-services .band-head h2 { color: #0E2742; }
+  .bs-services .band-head p {
+    margin: 20px auto 0;
+    max-width: 720px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: rgb(62, 68, 76);
+    text-align: center;
+  }
+  .bs-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 0 16px;
+  }
+  .bs-services .bs-eyebrow { color: #866E29; }
+  .bs-ongoing .bs-eyebrow { color: #C9A84C; }
+
+  .feat {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    background: #fff;
+    align-items: stretch;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .feat + .feat { margin-top: 28px; }
+  .feat.flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .feat.flip .feat-media { order: 2; }
+  .feat.flip .feat-text { order: 1; }
+  .feat-media {
+    min-height: 380px;
+    overflow: hidden;
+    position: relative;
+  }
+  .feat-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .feat-sale-prep img { object-position: 60% 50%; }
+  .feat-sale-guidance img { object-position: 50% 50%; }
+  .feat-text {
+    padding: 56px;
+    border-top: 3px solid #C9A84C;
+    min-width: 0;
+  }
+  .feat-text h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.25;
+    color: #0E2742;
+    margin: 0 0 16px;
+    overflow-wrap: break-word;
+  }
+  .feat-text p {
+    font-size: 16.5px;
+    line-height: 1.7;
+    font-weight: 300;
+    color: rgb(62, 68, 76);
+    margin: 0;
+    text-align: left;
+  }
+
+  .bs-ongoing.band {
+    padding: 96px 0;
+    background: rgb(62, 68, 76);
+  }
+  .bs-ongoing .band-head h2 { color: #fff; }
+  .bs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .bs-card {
+    flex: 0 1 calc(33.333% - 19px);
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .12);
+    padding: 34px 32px;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .bs-card-icon {
+    width: 44px;
+    height: 44px;
+    color: #C9A84C;
+    margin: 0 0 18px;
+  }
+  .bs-card-icon svg {
+    width: 44px;
+    height: 44px;
+    display: block;
+  }
+  .bs-card h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0 0 12px;
+    overflow-wrap: break-word;
+  }
+  .bs-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    font-weight: 300;
+    color: #CBD2DC;
+    margin: 0;
+    text-align: left;
+  }
+
+  @media (max-width: 819px) {
+    .bs-services.band,
+    .bs-ongoing.band { padding: 56px 0; }
+    .bs-services .band-head h2,
+    .bs-ongoing .band-head h2 { font-size: 30px; }
+    .feat,
+    .feat.flip { grid-template-columns: minmax(0, 1fr); }
+    .feat.flip .feat-media,
+    .feat.flip .feat-text { order: 0; }
+    .feat-media { min-height: 0; aspect-ratio: 16 / 10; }
+    .feat-text { padding: 24px 22px; }
+    .feat-text h3 { font-size: 23px; }
+    .bs-grid {
+      display: block;
+      background: #fff;
+      gap: 0;
+    }
+    .bs-card {
+      flex: none;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      column-gap: 14px;
+      padding: 18px;
+      border: none;
+      border-bottom: 1px solid #E2E6ED;
+      background: #fff;
+    }
+    .bs-card:last-child { border-bottom: none; }
+    .bs-card-icon {
+      width: 32px;
+      height: 32px;
+      grid-row: 1 / span 2;
+      margin: 0;
+      align-self: start;
+    }
+    .bs-card-icon svg { width: 32px; height: 32px; }
+    .bs-card h4 {
+      font-size: 17px;
+      color: #0E2742;
+      margin: 0 0 6px;
+      grid-column: 2;
+    }
+    .bs-card p {
+      font-size: 14px;
+      color: rgb(62, 68, 76);
+      grid-column: 2;
+    }
+  }
+
 </style>
 </head>
 <body class="theme-dark">
@@ -1970,41 +2159,112 @@
   </div>
 </section>
 
-<section class="band band-ice">
+<section class="band band-ice bs-services">
   <div class="container">
     <div class="band-head">
       <h2>Our Business Services</h2>
       <p>We offer tailored wealth management solutions designed to help businesses of all sizes grow, protect, and transition their assets. With expert guidance, we craft tax-efficient strategies and ensure your business is well-prepared for a seamless transition when the time comes. Leveraging our extensive network of insurance providers, qualified plan vendors, and strategic planning professionals, we’re here to guide you toward financial success.</p>
     </div>
-    <div class="feature-grid wrap">
-      <div class="feature-card">
-        <h4>Pre-Business Sale Preparation</h4>
+
+    <article class="feat feat-sale-prep">
+      <div class="feat-media">
+        <img
+          src="assets/images/bs-feat-sale-prep-1600w.jpg"
+          srcset="assets/images/bs-feat-sale-prep-800w.jpg 800w, assets/images/bs-feat-sale-prep-1600w.jpg 1600w"
+          sizes="(max-width: 819px) 100vw, 58vw"
+          width="1600" height="1066"
+          alt="Laptops open on a conference table"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="feat-text">
+        <h3>Pre-Business Sale Preparation</h3>
         <p>Strategic advice to maximize the value of your business before a sale, ensuring a smooth and profitable transition.</p>
       </div>
-      <div class="feature-card">
-        <h4>Business Sale &amp; Acquisition Guidance</h4>
+    </article>
+
+    <article class="feat feat-sale-guidance flip">
+      <div class="feat-media">
+        <img
+          src="assets/images/bs-feat-sale-guidance-1600w.jpg"
+          srcset="assets/images/bs-feat-sale-guidance-800w.jpg 800w, assets/images/bs-feat-sale-guidance-1600w.jpg 1600w"
+          sizes="(max-width: 819px) 100vw, 58vw"
+          width="1600" height="1066"
+          alt="Documents and a pen on a conference table"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="feat-text">
+        <h3>Business Sale &amp; Acquisition Guidance</h3>
         <p>Comprehensive support through every stage of buying or selling a business, from initial planning to final transaction.</p>
       </div>
-      <div class="feature-card">
+    </article>
+  </div>
+</section>
+
+<section class="band bs-ongoing">
+  <div class="container">
+    <div class="band-head">
+      <p class="bs-eyebrow">Run, grow and transition</p>
+      <h2>Ongoing business guidance</h2>
+    </div>
+    <div class="bs-grid">
+      <article class="bs-card">
+        <div class="bs-card-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
         <h4>Succession Planning Advice &amp; Guidance</h4>
         <p>Expert guidance in planning for the future of your business, ensuring a seamless transition of ownership and leadership.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="bs-card">
+        <div class="bs-card-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12 14 4-4"/>
+            <path d="M3.34 19a10 10 0 1 1 17.32 0"/>
+          </svg>
+        </div>
         <h4>Valuation &amp; Operational Guidance</h4>
         <p>In-depth analysis and advice on business valuation and operational efficiencies to optimize your company’s performance.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="bs-card">
+        <div class="bs-card-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="12" x="2" y="6" rx="2"/>
+            <circle cx="12" cy="12" r="2"/>
+            <path d="M6 12h.01M18 12h.01"/>
+          </svg>
+        </div>
         <h4>Corporate Cash Management</h4>
         <p>Strategies to efficiently manage your company’s cash flow, enhancing liquidity and overall financial health.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="bs-card">
+        <div class="bs-card-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" x2="21" y1="22" y2="22"/>
+            <line x1="6" x2="6" y1="18" y2="11"/>
+            <line x1="10" x2="10" y1="18" y2="11"/>
+            <line x1="14" x2="14" y1="18" y2="11"/>
+            <line x1="18" x2="18" y1="18" y2="11"/>
+            <polygon points="12 2 20 7 4 7"/>
+          </svg>
+        </div>
         <h4>Business Capital And Finance Solutions</h4>
         <p>Tailored financing solutions to meet your business’s capital needs, from growth financing to working capital.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="bs-card">
+        <div class="bs-card-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z"/>
+            <path d="M2 9v1c0 1.1.9 2 2 2h1"/>
+            <path d="M16 11h.01"/>
+          </svg>
+        </div>
         <h4>Corporate Retirement Plan Solutions</h4>
-        <p>Custom-designed retirement plans for businesses, ensuring Your employees’ financial security and compliance with regulatory standards.</p>
-      </div>
+        <p>Custom-designed retirement plans for businesses, ensuring your employees’ financial security and compliance with regulatory standards.</p>
+      </article>
     </div>
   </div>
 </section>
