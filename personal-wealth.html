@@ -1916,6 +1916,205 @@
     .feature-grid.wrap .feature-card, .insight-quad .idx-card { flex-basis: 100%; }
   }
 
+  /* Personal Wealth cards v3 — scoped to this page's ice band. */
+  .pw-services.band {
+    padding: 96px 0;
+    background: #F0F2F6;
+  }
+  .pw-services .band-head {
+    max-width: 720px;
+    text-align: center;
+    margin: 0 auto 52px;
+  }
+  .pw-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #866E29;
+    font-weight: 500;
+    margin: 0 0 16px;
+  }
+  .pw-services .band-head h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #0E2742;
+    margin: 0;
+  }
+  .pw-services .band-head p {
+    margin: 20px auto 0;
+    max-width: 720px;
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: rgb(62, 68, 76);
+    text-align: center;
+  }
+
+  .feat {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    background: #fff;
+    align-items: stretch;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .feat + .feat { margin-top: 28px; }
+  .feat.flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .feat.flip .feat-media { order: 2; }
+  .feat.flip .feat-text { order: 1; }
+  .feat-media {
+    min-height: 380px;
+    overflow: hidden;
+    position: relative;
+  }
+  .feat-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .feat-guidance img { object-position: 50% 60%; }
+  .feat-private img { object-position: 40% 40%; }
+  .feat-accounts img { object-position: 30% 40%; }
+  .feat-text {
+    padding: 56px;
+    border-top: 3px solid #C9A84C;
+  }
+  .feat-num {
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: #C9A84C;
+    letter-spacing: .08em;
+    margin: 0 0 14px;
+  }
+  .feat-text h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.25;
+    color: #0E2742;
+    margin: 0 0 16px;
+    overflow-wrap: break-word;
+  }
+  .feat-text p {
+    font-size: 16.5px;
+    line-height: 1.7;
+    font-weight: 300;
+    color: rgb(62, 68, 76);
+    margin: 0;
+    text-align: left;
+  }
+
+  .pw-subhead {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    color: #0E2742;
+    text-align: center;
+    margin: 56px 0 32px;
+  }
+
+  .icc-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .icc {
+    flex: 0 1 calc(33.333% - 19px);
+    background: #fff;
+    padding: 34px 32px;
+    border-top: 3px solid #C9A84C;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .icc-icon {
+    width: 44px;
+    height: 44px;
+    color: #A88A35;
+    background: #F0F2F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 18px;
+  }
+  .icc-icon svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+  .icc h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #0E2742;
+    margin: 0 0 12px;
+    overflow-wrap: break-word;
+  }
+  .icc p {
+    font-size: 15px;
+    line-height: 1.65;
+    font-weight: 300;
+    color: rgb(62, 68, 76);
+    margin: 0;
+    text-align: left;
+  }
+
+  @media (max-width: 819px) {
+    .pw-services.band { padding: 56px 0; }
+    .pw-services .band-head h2 { font-size: 30px; }
+    .feat,
+    .feat.flip { grid-template-columns: minmax(0, 1fr); }
+    .feat.flip .feat-media,
+    .feat.flip .feat-text { order: 0; }
+    .feat-media { min-height: 0; aspect-ratio: 16 / 10; }
+    .feat-text { padding: 24px 22px; min-width: 0; }
+    .feat-text h3 { font-size: 23px; }
+    .pw-subhead { font-size: 22px; margin: 40px 0 20px; overflow-wrap: break-word; }
+    .icc-grid {
+      display: block;
+      background: #fff;
+      gap: 0;
+    }
+    .icc {
+      flex: none;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      column-gap: 14px;
+      padding: 18px;
+      border-top: none;
+      border-bottom: 1px solid #E2E6ED;
+      background: #fff;
+    }
+    .icc:last-child { border-bottom: none; }
+    .icc-icon {
+      width: 32px;
+      height: 32px;
+      grid-row: 1 / span 2;
+      margin: 0;
+      align-self: start;
+    }
+    .icc-icon svg { width: 20px; height: 20px; }
+    .icc h4 {
+      font-size: 17px;
+      margin: 0 0 6px;
+      grid-column: 2;
+    }
+    .icc p {
+      font-size: 14px;
+      grid-column: 2;
+    }
+  }
+
 </style>
 </head>
 <body class="theme-dark">
@@ -1969,51 +2168,132 @@
   </div>
 </section>
 
-<section class="band band-ice">
+<section class="band band-ice pw-services">
   <div class="container">
     <div class="band-head">
+      <p class="pw-eyebrow">Services</p>
       <h2>Our Personal Wealth Management Services</h2>
       <p>Achieving financial success doesn't have to be complex. Our wealth management services offer a clear overview of your finances, covering investments, retirement accounts, real estate, ETFs, and more.</p>
     </div>
-    <div class="pw-grid">
-    <div class="feature-grid wrap">
-      <div class="feature-card">
-        <h4>Choose Expert Guidance, Unlock Prosperity</h4>
+
+    <article class="feat feat-guidance">
+      <div class="feat-media">
+        <img
+          src="assets/images/pw-feat-guidance-1600w.jpg"
+          srcset="assets/images/pw-feat-guidance-800w.jpg 800w, assets/images/pw-feat-guidance-1600w.jpg 1600w"
+          sizes="(max-width: 819px) 100vw, 58vw"
+          width="1600" height="1068"
+          alt="Conference table with a QTR water bottle, laptop, and Relentless Solution Focus book"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="feat-text">
+        <p class="feat-num">01</p>
+        <h3>Choose Expert Guidance, Unlock Prosperity</h3>
         <p>With our in-depth analysis and tailored strategies, we want to lay the groundwork to help you build and preserve wealth effortlessly, so you can focus on what matters most to you.</p>
       </div>
-      <div class="feature-card">
-        <h4>Bespoke Private Equity, Credit, Real Estate &amp; Hedge Funds</h4>
+    </article>
+
+    <article class="feat feat-private flip">
+      <div class="feat-media">
+        <img
+          src="assets/images/pw-feat-private-1600w.jpg"
+          srcset="assets/images/pw-feat-private-800w.jpg 800w, assets/images/pw-feat-private-1600w.jpg 1600w"
+          sizes="(max-width: 819px) 100vw, 58vw"
+          width="1600" height="1066"
+          alt="Printed bison sketch on a conference table beside a Bison cube"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="feat-text">
+        <p class="feat-num">02</p>
+        <h3>Bespoke Private Equity, Credit, Real Estate &amp; Hedge Funds</h3>
         <p>Tailored investment opportunities in private equity, credit markets, real estate, and hedge funds to suit your unique financial goals.</p>
       </div>
-      <div class="feature-card">
-        <h4>Discretionary &amp; Non-Discretionary Managed Accounts</h4>
+    </article>
+
+    <article class="feat feat-accounts">
+      <div class="feat-media">
+        <img
+          src="assets/images/pw-feat-accounts-1600w.jpg"
+          srcset="assets/images/pw-feat-accounts-800w.jpg 800w, assets/images/pw-feat-accounts-1600w.jpg 1600w"
+          sizes="(max-width: 819px) 100vw, 58vw"
+          width="1600" height="1720"
+          alt="Dual monitors showing portfolio charts and market data on a desk"
+          loading="lazy" decoding="async">
+      </div>
+      <div class="feat-text">
+        <p class="feat-num">03</p>
+        <h3>Discretionary &amp; Non-Discretionary Managed Accounts</h3>
         <p>Personalized account management options, offering both full-service management and collaborative decision-making based on your preferences.</p>
       </div>
-      <div class="feature-card">
+    </article>
+
+    <h3 class="pw-subhead">Investment and tax-aware solutions</h3>
+
+    <div class="icc-grid">
+      <article class="icc">
+        <div class="icc-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+        </div>
         <h4>Customized Direct Indexing Solutions</h4>
         <p>Innovative indexing strategies designed to align with your personal values and investment goals while seeking to provide tax efficiency.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="icc">
+        <div class="icc-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+            <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+          </svg>
+        </div>
         <h4>Equity &amp; Fixed Income Solutions</h4>
         <p>Diversified strategies for managing both equity and fixed income portfolios, tailored to your risk tolerance and financial objectives.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="icc">
+        <div class="icc-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+          </svg>
+        </div>
         <h4>Enhanced Cash Management Solutions</h4>
         <p>Comprehensive tailored approaches to managing cash flow, designed to optimize liquidity and returns on your cash assets.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="icc">
+        <div class="icc-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
         <h4>Concentrated Stock Management</h4>
         <p>Comprehensive strategies for managing substantial positions in individual stocks, mitigating risk, and maximizing value.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="icc">
+        <div class="icc-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3"/>
+            <path d="M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3"/>
+            <line x1="12" x2="12" y1="4" y2="20"/>
+          </svg>
+        </div>
         <h4>Option Overlay Solutions</h4>
         <p>Customized option strategies to enhance income, reduce risk, or hedge concentrated positions in your portfolio.</p>
-      </div>
-      <div class="feature-card">
+      </article>
+      <article class="icc">
+        <div class="icc-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 3 4 7l4 4"/>
+            <path d="M4 7h16"/>
+            <path d="m16 21 4-4-4-4"/>
+            <path d="M20 17H4"/>
+          </svg>
+        </div>
         <h4>Real Estate 1031 Exchange Solutions</h4>
         <p>Partner expertise in 1031 exchange transactions, helping you defer capital gains taxes while reinvesting in real estate.</p>
-      </div>
-    </div>
+      </article>
     </div>
   </div>
 </section>
