@@ -1515,6 +1515,23 @@
   .footer-disclaimer a { color: var(--d-muted); text-decoration: underline; text-underline-offset: 2px; }
   .footer-disclaimer a:hover { color: var(--p-gold-light); }
   .footer-disclaimer .refs { margin: 0; }
+  .footer-disclaimer .refs-label {
+    margin-right: 6px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  /* The QTR row sits under the IFP row. The label takes its own line so the two groups
+     stay apart, and the links wrap instead of overflowing at 390px. */
+  .footer-legal { flex-wrap: wrap; row-gap: 8px; }
+  .footer-legal .legal-label {
+    flex-basis: 100%;
+    margin-top: 18px;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--d-muted);
+  }
 
   @media (max-width: 991px) {
     .page-hero { padding: 130px 0 56px; }
@@ -2021,15 +2038,15 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 QTR Family Wealth, LLC. All rights reserved.</p>
-      <!-- 🔴 COMPLIANCE TEXT — VERBATIM, NOT OURS TO EDIT. Same wording and the same seven
-           links we shipped to the live footer 2026-07-29 after the client's compliance
-           process required it. The paragraph that stood here previously was design-written
-           and made a conflicting claim about who securities are offered through. -->
+      <!-- 🔴 COMPLIANCE TEXT — VERBATIM, NOT OURS TO EDIT. Nov 11 2026 client wording.
+           Review site only. Five IFP document links stay in their own row, apart from
+           QTR Form ADV and Form CRS. -->
       <div class="footer-disclaimer">
-        <p>Securities offered through IFP Securities, LLC, dba Independent Financial Partners (IFP), member <a href="https://www.finra.org/" target="_blank" rel="noopener">FINRA</a> / <a href="https://www.sipc.org/" target="_blank" rel="noopener">SIPC</a>. IFP and QTR Family Wealth are not affiliated. Registration does not imply that the Firm is recommended or approved by the United States government or any regulatory agency. Registration with the United States Securities and Exchange Commission or any state securities authority does not imply any level of skill or training. IFP may only transact business or render personalized investment advice in those states and international jurisdictions where it is registered, has notice filed, or is otherwise excluded or exempted from registration requirements. The purpose of this website is for information distribution only and should not be construed as an offer to buy or sell securities or to offer investment advice. Past results are no guarantee of future results and no representation is made that a client will or is likely to achieve results that are similar to those described. An investor should consider his or her investment objectives, risks, charges and expenses carefully before investing. Please refer to IFP Advisors LLC ADV Part 2 for additional information and risks.</p>
-        <p class="refs"><a href="https://ifpartners.app.box.com/file/763705826059?s=rgebtsjdjzgx7ohmyurpqjlk97in5dwj" target="_blank" rel="noopener">Reg BI Disclosure Supplement</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/763697625423?s=tczh800qb1dhqvgace4pw69no4flsihm" target="_blank" rel="noopener">Form CRS</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/s/az9o40b53ci98707zd6au5q1hm71138k" target="_blank" rel="noopener">Investor Pricing</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/583658703941?s=qo2vwe5f5ek6bmu5xmtx1a5q96g9cf3q" target="_blank" rel="noopener">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/1094761215062?s=1shcydfmp5nfomimof1jjbih6p0qvkfk" target="_blank" rel="noopener">Business Continuity Plan</a></p>
+        <p>Advisory services are offered through QTR Family Wealth, LLC, an investment adviser registered with the U.S. Securities and Exchange Commission. Registration does not imply a certain level of skill or training. QTR provides advisory services only in states where it is registered, has filed notice or is exempt from registration. Certain QTR professionals are also registered representatives of IFP Securities, LLC, dba Independent Financial Partners (IFP), member FINRA/SIPC, through which securities brokerage services are offered. QTR Family Wealth, LLC and IFP are separate and unaffiliated companies, and the background of these professionals is available on FINRA's BrokerCheck at <a href="https://brokercheck.finra.org/" target="_blank" rel="noopener">brokercheck.finra.org</a>. This website is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security, nor personalized investment, legal or tax advice. Past performance is not a guarantee of future results. QTR's advisory client assets are held in custody at Fidelity Investments and Charles Schwab, which are not affiliated with QTR. Please refer to QTR's Form ADV Part 2A and Form CRS, available at <a href="https://adviserinfo.sec.gov/" target="_blank" rel="noopener">adviserinfo.sec.gov</a>, and to IFP's Form CRS, available through the link on this page, for information about each firm's services, fees, risks and conflicts of interest.</p>
+        <p class="refs"><span class="refs-label">IFP documents</span> <a href="https://ifpartners.app.box.com/file/763705826059?s=rgebtsjdjzgx7ohmyurpqjlk97in5dwj" target="_blank" rel="noopener">Reg BI Disclosure Supplement</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/763697625423?s=tczh800qb1dhqvgace4pw69no4flsihm" target="_blank" rel="noopener">Form CRS</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/s/az9o40b53ci98707zd6au5q1hm71138k" target="_blank" rel="noopener">Investor Pricing</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/583658703941?s=qo2vwe5f5ek6bmu5xmtx1a5q96g9cf3q" target="_blank" rel="noopener">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://ifpartners.app.box.com/file/1094761215062?s=1shcydfmp5nfomimof1jjbih6p0qvkfk" target="_blank" rel="noopener">Business Continuity Plan</a></p>
       </div>
       <div class="footer-legal">
+        <span class="legal-label">QTR documents</span>
         <a href="https://qtrfamily.com/wp-content/uploads/QTR_2aBrochure_2026.pdf" target="_blank" rel="noopener">Form ADV</a>
         <a href="https://qtrfamily.com/wp-content/uploads/QTR_CRS_March2026.pdf" target="_blank" rel="noopener">Form CRS</a>
         <a href="disclosure-statement.html">Disclosures</a>
