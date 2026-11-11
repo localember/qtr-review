@@ -1767,11 +1767,38 @@
   }
   .quote-band .cap { color: var(--p-gold-light); font-size: 14px; letter-spacing: .4px; margin: 0; }
 
-  .memory { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
-  .memory-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .memory-pair img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; margin: 0; }
+  .memory { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .memory > * { min-width: 0; }
+  .memory-pair { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: 16px; align-items: center; min-width: 0; }
+  .memory-pair > img { width: 100%; height: auto; max-width: 100%; display: block; margin: 0; object-fit: contain; }
+  /* The plaque file is a tall room photo: wall above, glass to the right. Frame the
+     plaque itself (x 0–810, y 500–1230 of the 1176×1661 file) so the inscription
+     is readable and that empty area stays outside the frame. */
+  .memory-plaque {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 810 / 730;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .memory-plaque img {
+    position: absolute;
+    left: 0;
+    top: calc(-500 / 730 * 100%);
+    width: calc(1176 / 810 * 100%);
+    max-width: none;
+    height: auto;
+    margin: 0;
+    display: block;
+  }
   .memory h2 { color: var(--d-head); margin-top: 0; }
   .memory p { color: var(--d-text); text-align: left; }
+  .quote-band blockquote cite {
+    display: block; margin-top: 16px;
+    font-family: var(--font-body); font-style: normal; font-weight: 400;
+    font-size: 14px; letter-spacing: .4px; color: var(--p-gold-light);
+  }
 
   .jump-tabs {
     position: sticky; top: 0; z-index: 30;
@@ -1928,6 +1955,9 @@
       flex: 1 1 100%; max-width: none; flex-direction: row; align-items: center;
     }
     .team-grid-9 .idx-card-img { width: 112px; flex: none; aspect-ratio: 4 / 5; }
+    .memory-pair { grid-template-columns: 1fr; }
+    .memory-pair > img { width: min(260px, 100%); margin-left: auto; margin-right: auto; }
+    .memory-plaque { width: 100%; }
     .team-grid-9 .excerpt { display: none; }
     .team-grid-9 .read-bio { display: block; margin: 8px 0 0; font-size: 12px; letter-spacing: .8px; text-transform: uppercase; color: var(--p-gold-ink); }
     .feature-grid.wrap .feature-card, .insight-quad .idx-card { flex-basis: 100%; }
@@ -1993,7 +2023,7 @@
       <div class="split-body">
         <h2>Our approach</h2>
         <p>Guided by our philosophy of Quality Time Remaining, we focus on helping you achieve financial freedom to create a legacy. To us, wealth extends beyond numbers, it encompasses financial, intellectual, social, human, and spiritual capital, each vital to a fulfilling life.</p>
-        <p>Our approach filters out the noise, providing you with clear and actionable advice tailored to your unique goals, whether you're planning for retirement, or looking for solutions for your business. We prioritize genuine human connection and personalized service, ensuring every decision supports your prosperity and the impact you want to make. Our team wants to help you maximize your time, protect your legacy, and build a foundation for future generations.</p>
+        <p>Our approach filters out the noise, providing you with clear and actionable advice tailored to your unique goals, whether you're planning for retirement, or looking for solutions for your business. We prioritize genuine human connection and personalized service, with the aim that every decision supports your prosperity and the impact you want to make. Our team wants to help you maximize your time, protect your legacy, and build a foundation for future generations.</p>
       </div>
       <div class="split-media"><img src="assets/images/about-wes-leading.jpg" alt="Wes Hunter leading a team discussion" width="2000" height="1333" loading="lazy" decoding="async"></div>
     </div>
@@ -2006,11 +2036,11 @@
     <div class="feature-grid wrap why-grid">
       <div class="feature-card">
         <h4>Full decision-making control</h4>
-        <p>In a world where private equity and big banks often prioritize profits over clients, we understand the importance of having full decision-making control to serve your best interests.</p>
+        <p>As an independently owned firm, we have full decision-making control over how we serve our clients.</p>
       </div>
       <div class="feature-card">
         <h4>Savings reinvested in service</h4>
-        <p>Unlike larger institutions burdened by hidden fees and constraints, we reinvest those savings into superior services tailored for you. We ensure that every dollar you invest with us goes toward providing the best possible support for your family.</p>
+        <p>As an independently owned firm, we reinvest in the people and technology that support our clients.</p>
       </div>
       <div class="feature-card">
         <h4>Relationships that last</h4>
@@ -2022,8 +2052,8 @@
 
 <section class="band band-deep quote-band">
   <div class="container">
-    <blockquote>&ldquo;Quality is never an accident. It&rsquo;s a result of purposeful effort.&rdquo;</blockquote>
-    <p class="cap">In partnership with Fidelity Investments and Charles Schwab</p>
+    <blockquote>&ldquo;Quality is never an accident; it is always the result of intelligent effort.&rdquo; <cite>John Ruskin</cite></blockquote>
+    <p class="cap">Client assets are held in custody at Fidelity Investments and Charles Schwab, which are not affiliated with QTR.</p>
   </div>
 </section>
 
@@ -2051,7 +2081,7 @@
       </div>
       <div class="memory-pair">
         <img src="assets/images/mike-wolfe_headshot.jpg" alt="Mike Wolfe" width="1182" height="1773" loading="lazy" decoding="async">
-        <img src="assets/images/Michael-Wolfe-Memorial-Plaque.png" alt="Michael Wolfe memorial plaque" width="1176" height="1661" loading="lazy" decoding="async">
+        <div class="memory-plaque"><img src="assets/images/Michael-Wolfe-Memorial-Plaque.png" alt="Michael Wolfe memorial plaque" width="1176" height="1661" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </div>
