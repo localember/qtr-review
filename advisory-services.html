@@ -2090,6 +2090,25 @@
   }
   .band-slate .icc h4 { color: #fff; }
   .band-slate .icc p { color: #CBD2DC; }
+  .grp-note {
+    flex: 1 1 100%;
+    margin: 0;
+    max-width: none;
+    font-size: 13px;
+    line-height: 1.55;
+    font-weight: 400;
+    text-align: left;
+    color: #5c6570;
+  }
+  .grp-side > p.grp-note {
+    max-width: none;
+    margin-top: 18px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #3A4250;
+  }
+  .band-slate .grp-note { color: #CBD2DC; }
+  .band-slate .grp-side > p.grp-note { color: #CBD2DC; }
 
   @media (max-width: 991px) {
     .band.grp { padding: 56px 0; }
@@ -2122,6 +2141,17 @@
       border-bottom: 1px solid #E2E6ED;
     }
     .icc:last-child { border-bottom: 0; }
+    .cards > .grp-note {
+      padding: 12px 18px 14px;
+      border-bottom: 1px solid #E2E6ED;
+      background: #fff;
+      color: #3A4250;
+      font-size: 12.5px;
+    }
+    .cards > .grp-note:last-child { border-bottom: 0; }
+    .band-slate .cards > .grp-note { color: #3A4250; }
+    .grp-side > p.grp-note { margin-top: 14px; }
+    .band-slate .grp-side > p.grp-note { color: #CBD2DC; }
     .icc summary {
       display: grid;
       grid-template-columns: 36px 1fr auto;
@@ -2132,8 +2162,10 @@
       cursor: pointer;
     }
     .ic svg { width: 32px; height: 32px; }
-    .icc h4 { margin: 0; font-size: 17px; color: #0E2742; }
-    .icc p {
+    .icc h4,
+    .band-slate .icc h4 { margin: 0; font-size: 17px; color: #0E2742; }
+    .icc p,
+    .band-slate .icc p {
       grid-column: 1 / -1;
       margin: 0;
       padding: 2px 0 2px 48px;
@@ -2215,7 +2247,7 @@
   <div class="container">
     <p class="intro-eye">Our Advisory Services</p>
     <h2>Navigate Your Financial Future with<br> Confidence</h2>
-    <p>With decades of experience and innovative strategies, we empower you to navigate your financial future, ensuring that every decision is aligned with your long-term objectives to optimize your financial well-being.</p>
+    <p>With decades of experience and innovative strategies, we help you navigate your financial future, seeking to align each decision with your long-term objectives.</p>
     <nav class="jump-tabs" aria-label="Advisory services"><a href="#g0">Financial Planning</a><a href="#g1">Trust and Estate</a><a href="#g2">Insurance</a><a href="#g3">Credit and Lending</a></nav>
   </div>
 </section>
@@ -2238,6 +2270,7 @@
         <details class="icc">
           <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" x2="5" y1="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><h4>Tax Minimization Planning</h4><span class="tog" aria-hidden="true"></span><p>Personalized strategies are designed to reduce your tax liability, helping you retain more of your wealth.</p></summary>
         </details>
+        <p class="grp-note">QTR does not provide legal or tax advice. Tax and estate planning strategies are coordinated with your own tax and legal advisors.</p>
       </div>
     </div>
   </div>
@@ -2282,6 +2315,7 @@
         <p class="grp-eye" id="insurance">03</p>
         <h2>Insurance</h2>
         <p>Life, long-term care, disability, and property coverage.</p>
+        <p class="grp-note">Insurance products are offered by Wes Hunter, Chad Hunter, Whit Kunzelman and Jack Murphy in their separate capacity as licensed insurance agents through Modern Life, and not through QTR Family Wealth, LLC. These individuals receive commissions on insurance sales, which creates a conflict of interest because they have an incentive to recommend insurance products. Clients are under no obligation to purchase insurance through them.</p>
       </div>
       <div class="cards">
         <details class="icc" open>
@@ -2300,7 +2334,7 @@
           <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></span><h4>Disability Solutions</h4><span class="tog" aria-hidden="true"></span><p>Insurance strategies designed to protect your income and maintain financial stability in the event of a disability.</p></summary>
         </details>
         <details class="icc">
-          <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><h4>Property &amp; Casualty Analysis</h4><span class="tog" aria-hidden="true"></span><p>Detailed evaluations and personalized recommendations for property and casualty insurance to ensure your assets are fully protected</p></summary>
+          <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><h4>Property &amp; Casualty Analysis</h4><span class="tog" aria-hidden="true"></span><p>Detailed evaluations and personalized recommendations for property and casualty insurance designed to help protect your assets.</p></summary>
         </details>
       </div>
     </div>
@@ -2319,6 +2353,7 @@
         <details class="icc" open>
           <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><h4>Securities-Based Lending</h4><span class="tog" aria-hidden="true"></span><p>Access liquidity by leveraging your investment portfolio, providing you with flexible financing solutions.</p></summary>
         </details>
+        <p class="grp-note">Borrowing against your investments increases both potential gains and potential losses, and a decline in the value of your portfolio may require you to deposit additional funds or sell securities.</p>
         <details class="icc">
           <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span><h4>Strategic Non-Traditional Lending Partners</h4><span class="tog" aria-hidden="true"></span><p>Lending options through strategic partnerships, tailored to meet your unique financial needs.</p></summary>
         </details>
@@ -2326,7 +2361,7 @@
           <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><h4>Home Mortgage Structuring &amp; Guidance</h4><span class="tog" aria-hidden="true"></span><p>Professional advice on structuring home mortgages, seeking to help you secure favorable terms and rates through external lending partners.</p></summary>
         </details>
         <details class="icc">
-          <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 17V9"/><path d="M18 17V5"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 17v-3"/></svg></span><h4>Margin &amp; Multi-Margin</h4><span class="tog" aria-hidden="true"></span><p>Leverage investment opportunities through margin lending, tailored to your risk tolerance and financial goals.</p></summary>
+          <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 17V9"/><path d="M18 17V5"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 17v-3"/></svg></span><h4>Margin &amp; Multi-Margin</h4><span class="tog" aria-hidden="true"></span><p>Margin lending tailored to your risk tolerance and financial goals. Borrowing against your investments increases both potential gains and potential losses, and a decline in the value of your portfolio may require you to deposit additional funds or sell securities.</p></summary>
         </details>
         <details class="icc">
           <summary><span class="ic"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></svg></span><h4>Home Equity Lines of Credit (HELOC)</h4><span class="tog" aria-hidden="true"></span><p>Flexible financing solutions through home equity lines of credit, providing access to funds when you need them through external lending partners.</p></summary>
